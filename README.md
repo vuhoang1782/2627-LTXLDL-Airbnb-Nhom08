@@ -28,11 +28,7 @@ Nếu chưa có quyền đọc template hoặc tạo repo trong org, liên hệ 
 
 | Họ tên | MSSV | GitHub username | Công việc phụ trách |
 |---|---|---|---|
-| Lê Đức Anh | 25022769 | TODO | TODO |
-| Trần Thị Thùy Linh | 25024129 | TODO | TODO |
-| Nguyễn Ngọc Minh | 25024137 | TODO | TODO |
-| Lại Hồng Phúc | 25024157 | TODO | TODO |
-| Bùi Thị Phương Quyên | 25024164 | TODO | TODO |
+
 
 Thêm dòng cho đầy đủ thành viên. Mỗi thành viên cần hiểu và giải thích được toàn bộ sản phẩm của nhóm.
 
