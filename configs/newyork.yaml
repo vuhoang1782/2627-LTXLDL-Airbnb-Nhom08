@@ -12,9 +12,13 @@ kpi:
   area_col: neighbourhood_cleansed
 
 llm:
-  provider: gemini                # model tuỳ chọn
-  sample_size: 3000               # nhóm giải thích cỡ mẫu
+  provider: gemini # model tuỳ chọn
+  sample_size: 1000 #check theo review.scv
   aspects: [vị trí, sạch sẽ, chủ nhà, giá trị, tiện nghi, độ ồn, an toàn]
   cache: data/processed/llm_cache.jsonl
 
 seed: 42
+check:
+  ma_du_lieu: DSE2049-C04-G08-new-york-city
+  listing_file: data/samples/PClistings.csv
+  review_file: data/samples/PCreview.csv
