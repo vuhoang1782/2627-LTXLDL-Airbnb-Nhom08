@@ -30,7 +30,6 @@ Nếu chưa có quyền đọc template hoặc tạo repo trong org, liên hệ 
 |---|---|---|---|
 
 
-Thêm dòng cho đầy đủ thành viên. Mỗi thành viên cần hiểu và giải thích được toàn bộ sản phẩm của nhóm.
 
 ## Cài đặt và chạy
 
