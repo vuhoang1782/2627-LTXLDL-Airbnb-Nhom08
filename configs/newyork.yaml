@@ -1,0 +1,24 @@
+city: new-york-city
+data_root: united-states/ny/new-york-city   # dựng URL: data.insideairbnb.com/<data_root>/<mốc>/...
+currency: USD
+snapshots: [2025-09-01, 2025-01-11, 2026-03-16, 2026-06-14]
+
+qa:
+  price_max_usd: 10000            # ngưỡng ngoại lai giá
+  min_nights_cap: 365
+  dedupe_keys: [id, last_scraped]
+
+kpi:
+  area_col: neighbourhood_cleansed
+
+llm:
+  provider: gemini # model tuỳ chọn
+  sample_size: 1000 #check theo review.scv
+  aspects: [vị trí, sạch sẽ, chủ nhà, giá trị, tiện nghi, độ ồn, an toàn]
+  cache: data/processed/llm_cache.jsonl
+
+seed: 42
+check:
+  ma_du_lieu: DSE2049-C04-G08-new-york-city
+  listing_file: data/samples/PClistings.csv
+  review_file: data/samples/PCreview.csv
