@@ -22,3 +22,6 @@ check:
   ma_du_lieu: DSE2049-C04-G08-new-york-city
   listing_file: data/samples/PClistings.csv
   review_file: data/samples/PCreview.csv
+
+raw_dir: data/raw
+reports_dir: reports
