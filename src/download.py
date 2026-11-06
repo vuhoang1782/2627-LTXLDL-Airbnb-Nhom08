@@ -1,170 +1,68 @@
-"""Tải dữ liệu Inside Airbnb theo config và kiểm tra tính toàn vẹn."""
-from __future__ import annotations
-
-import argparse
-import gzip
-import hashlib
-import json
-import logging
-import sys
+import shutil
 import time
-from datetime import datetime, timezone
+import urllib.error
+import urllib.request
 from pathlib import Path
 
-import pandas as pd
-import requests
 import yaml
 
 BASE_URL = "https://data.insideairbnb.com"
-HEADERS = {"User-Agent": "Mozilla/5.0 (LTXLDL student project)"}
+FILES = ["data/listings.csv.gz", "data/calendar.csv.gz", "data/reviews.csv.gz"]
+TIMEOUT, MAX_RETRIES, BACKOFF = 30, 3, 2.0
 
-FILES = {
-    "listings": {
-        "rel": "data/listings.csv.gz",
-        "required": ["id", "price", "neighbourhood_cleansed", "latitude",
-                     "longitude", "room_type", "minimum_nights", "last_scraped"],
-    },
-    "calendar": {
-        "rel": "data/calendar.csv.gz",
-        "required": ["listing_id", "date", "available", "minimum_nights"], # trước 2 file 2025 phần calendar tồn tại khóa, nhưng sau năm 2026 thì không, 2 cột prices đó đều rỗng, nhưng file listing ở ngày 1/9/2025, và các 2026 listing đêu có prices, nên chắc ko cần
-    },
-    "reviews": {
-        "rel": "data/reviews.csv.gz",
-        "required": ["listing_id", "id", "date", "comments"],
-    },
-    "neighbourhoods": {
-        "rel": "visualisations/neighbourhoods.geojson",
-        "required": [],
-    },
-}
-
-log = logging.getLogger("download")
-
-class DownloadError(Exception):
-    def __init__(self, status, url):
-        super().__init__(f"HTTP {status}: {url}")
-        self.status = status
-
-def download_file(url: str, dest: Path, retries: int = 3, timeout: int = 60) -> None:
-    dest.parent.mkdir(parents=True, exist_ok=True)
-    tmp = dest.with_name(dest.name + ".part")
-    for attempt in range(1, retries + 1):
-        try:
-            with requests.get(url, stream=True, timeout=timeout, headers=HEADERS) as r:
-                if r.status_code >= 400:
-                    raise DownloadError(r.status_code, url)
-                with open(tmp, "wb") as f:
-                    for chunk in r.iter_content(1 << 20):
-                        f.write(chunk)
-            tmp.replace(dest)
-            return
-        except DownloadError as e:
-            tmp.unlink(missing_ok=True)
-            if e.status < 500 or attempt == retries:   # 403/404 không thử lại
-                raise
-            time.sleep(2 ** attempt)
-        except requests.RequestException:
-            tmp.unlink(missing_ok=True)
-            if attempt == retries:
-                raise
-            time.sleep(2 ** attempt)
-# ========================================================================
 
 def load_config(path: str) -> dict:
     with open(path, encoding="utf-8") as f:
         cfg = yaml.safe_load(f)
-    cfg["snapshots"] = [str(s) for s in cfg["snapshots"]]  
+    cfg["snapshots"] = [str(s) for s in cfg["snapshots"]]
     return cfg
 
 
-def build_url(data_root: str, snapshot: str, rel: str) -> str:
-    return f"{BASE_URL}/{data_root}/{snapshot}/{rel}"
+def _download_one(url: str, dest: Path) -> str | None:
+    """Trả về None nếu OK, ngược lại trả về thông báo lỗi."""
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    part = dest.with_suffix(dest.suffix + ".part")
+    err = None
+
+    for attempt in range(MAX_RETRIES):
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+            with urllib.request.urlopen(req, timeout=TIMEOUT) as r, open(part, "wb") as f:
+                shutil.copyfileobj(r, f)
+            part.replace(dest)
+            return None
+        except urllib.error.HTTPError as e:
+            err = f"HTTP {e.code}"
+            if 400 <= e.code < 500 and e.code != 429:
+                break
+        except (urllib.error.URLError, TimeoutError, OSError) as e:
+            err = f"Network error: {e}"
+        finally:
+            part.unlink(missing_ok=True)
+        time.sleep(BACKOFF * 2**attempt)
+    return err
 
 
-def validate_file(path: Path, kind: str) -> None:
-    spec = FILES[kind]
-    if path.suffix == ".gz":
-        with open(path, "rb") as f:
-            if f.read(2) != b"\x1f\x8b":
-                raise ValueError("Không phải file gzip")
-        with gzip.open(path, "rb") as g:          
-            while g.read(1 << 20):
-                pass
-        cols = set(pd.read_csv(path, nrows=0).columns)
-        missing = set(spec["required"]) - cols
-        if missing:
-            raise ValueError(f"Thiếu cột khoá: {sorted(missing)}")
-    else:
-        with open(path, encoding="utf-8") as f:
-            gj = json.load(f)
-        if not gj.get("features"):
-            raise ValueError("GeoJSON không có features")
-
-
-def sha256_of(path: Path) -> str:
-    h = hashlib.sha256()
-    with open(path, "rb") as f:
-        for block in iter(lambda: f.read(1 << 20), b""):
-            h.update(block)
-    return h.hexdigest()
-
-
-def run(config_path: str, force: bool = False) -> int:
-    cfg = load_config(config_path)
-    raw_root = Path(cfg.get("raw_dir", "data/raw")) / cfg["city"]
-    manifest = []
-
+def download_all(cfg: dict, raw_dir: str) -> dict:
+    ok, failed = [], []
     for snap in cfg["snapshots"]:
-        for kind, spec in FILES.items():
-            dest = raw_root / snap / Path(spec["rel"]).name
-            url = build_url(cfg["data_root"], snap, spec["rel"])
-            
-            # Bổ sung http_status mặc định là None để hàm check đọc được
-            row = {"snapshot": snap, "table": kind, "url": url, "path": str(dest),
-                   "status": "", "http_status": None, "size_bytes": None, "sha256": None,
-                   "downloaded_at": datetime.now(timezone.utc).isoformat(),
-                   "message": ""}
-            try:
-                if dest.exists() and not force:
-                    try:
-                        validate_file(dest, kind)
-                        row["status"] = "skipped"
-                    except Exception:
-                        log.warning("File cũ hỏng, tải lại: %s", dest)
-                        dest.unlink()
-                if not row["status"]:
-                    log.info("Tải %s", url)
-                    download_file(url, dest)
-                    validate_file(dest, kind)
-                    row["status"] = "ok"
-                row["size_bytes"] = dest.stat().st_size
-                row["sha256"] = sha256_of(dest)
-                
-            except DownloadError as e: # Bắt lỗi 403/404/500 từ hàm mới
-                row["status"] = "failed"
-                row["http_status"] = e.status
-                row["message"] = str(e)
-                log.error("%s/%s: %s", snap, kind, e)
-                
-            except Exception as e:     # Bắt các lỗi khác (file hỏng, giải nén lỗi...)
-                row["status"], row["message"] = "failed", str(e)
-                log.error("%s/%s: %s", snap, kind, e)
-                
-            manifest.append(row)
-
-    out = Path(cfg.get("reports_dir", "reports")) / "download_manifest.csv"
-    out.parent.mkdir(parents=True, exist_ok=True)
-    pd.DataFrame(manifest).to_csv(out, index=False)
-
-    failed = [m for m in manifest if m["status"] == "failed"]
-    log.info("Xong: %d file, %d lỗi. Manifest: %s", len(manifest), len(failed), out)
-    return 1 if failed else 0
-
+        for rel in FILES:
+            url = f"{BASE_URL}/{cfg['data_root']}/{snap}/{rel}"
+            dest = Path(raw_dir) / cfg["city"] / snap / Path(rel).name
+            err = _download_one(url, dest)
+            (failed if err else ok).append({"path": str(dest), "error": err})
+            print(f"{'FAIL: ' + err if err else 'OK'} {dest}")
+    return {"ok": ok, "failed": failed}
 
 if __name__ == "__main__":
-    logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--config", required=True)
-    ap.add_argument("--force", action="store_true", help="tải lại dù file đã có")
-    args = ap.parse_args()
-    sys.exit(run(args.config, args.force))
+    import argparse
+
+    p = argparse.ArgumentParser()
+    p.add_argument("--config", required=True)
+    p.add_argument("--raw-dir", default="data/raw")
+    args = p.parse_args()
+
+    cfg = load_config(args.config)
+    res = download_all(cfg, args.raw_dir)
+    print(f"\nXong: {len(res['ok'])} OK, {len(res['failed'])} lỗi")
+    raise SystemExit(1 if res["failed"] else 0)
