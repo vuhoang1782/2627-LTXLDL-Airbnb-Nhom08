@@ -11,3 +11,6 @@ Sorting.py: là file ultility được dùng để check tỷ lệ nan trong cá
 - Bổ sung thêm cột check giữa các file và loại bỏ 1 số thành phần không cần thiết, tập trung vào nhiệm vụ check nan
 
 
+qa.py: kiểm tra trước bằng định dạng file .csv để có thể kiểm tra liệu ids đã được điền chuẩn chưa (liệu có theo đúng số của listings, reviews như đã giao trong đề không ?)
+tiến hành gán cờ, phát hiện 1 số lỗi, và đã kiểm tra tay lại.
+- tích hợp thêm 1 só phần việc trong việc lọc file và xét llm, ưu tiên làm llm trước
