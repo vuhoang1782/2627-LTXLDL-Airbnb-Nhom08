@@ -1,0 +1,214 @@
+kpi_id,snapshot,area,value,unit,n
+K4,2025-09-01,ALL,0.583,ratio,1000
+K4,2025-09-01,Astoria,0.5454545454545454,ratio,11
+K4,2025-09-01,Bedford-Stuyvesant,0.43548387096774194,ratio,62
+K4,2025-09-01,Boerum Hill,0.4,ratio,5
+K4,2025-09-01,Brownsville,0.0,ratio,5
+K4,2025-09-01,Bushwick,0.5357142857142857,ratio,28
+K4,2025-09-01,Cambria Heights,0.4,ratio,5
+K4,2025-09-01,Canarsie,0.18181818181818182,ratio,11
+K4,2025-09-01,Carroll Gardens,0.6,ratio,5
+K4,2025-09-01,Chelsea,0.7272727272727273,ratio,22
+K4,2025-09-01,Clinton Hill,0.2857142857142857,ratio,7
+K4,2025-09-01,Crown Heights,0.7142857142857143,ratio,35
+K4,2025-09-01,Cypress Hills,0.4,ratio,5
+K4,2025-09-01,East Elmhurst,0.5,ratio,6
+K4,2025-09-01,East Flatbush,0.6190476190476191,ratio,21
+K4,2025-09-01,East Harlem,0.5652173913043478,ratio,23
+K4,2025-09-01,East New York,0.25,ratio,12
+K4,2025-09-01,East Village,0.5357142857142857,ratio,28
+K4,2025-09-01,Elmhurst,0.4,ratio,5
+K4,2025-09-01,Financial District,0.8333333333333334,ratio,18
+K4,2025-09-01,Flatbush,0.46153846153846156,ratio,13
+K4,2025-09-01,Flushing,0.75,ratio,8
+K4,2025-09-01,Forest Hills,0.5,ratio,6
+K4,2025-09-01,Fort Greene,0.3333333333333333,ratio,6
+K4,2025-09-01,Fort Hamilton,0.875,ratio,8
+K4,2025-09-01,Gramercy,0.6153846153846154,ratio,13
+K4,2025-09-01,Greenpoint,0.5714285714285714,ratio,7
+K4,2025-09-01,Greenwich Village,0.5714285714285714,ratio,7
+K4,2025-09-01,Harlem,0.5348837209302325,ratio,43
+K4,2025-09-01,Hell's Kitchen,0.8571428571428571,ratio,49
+K4,2025-09-01,Jamaica,0.3333333333333333,ratio,6
+K4,2025-09-01,Kips Bay,0.6153846153846154,ratio,13
+K4,2025-09-01,Little Italy,1.0,ratio,7
+K4,2025-09-01,Long Island City,0.8,ratio,5
+K4,2025-09-01,Lower East Side,0.625,ratio,16
+K4,2025-09-01,Midtown,0.8852459016393442,ratio,61
+K4,2025-09-01,Mott Haven,0.2,ratio,5
+K4,2025-09-01,Murray Hill,0.9444444444444444,ratio,18
+K4,2025-09-01,Park Slope,0.2857142857142857,ratio,14
+K4,2025-09-01,Prospect Heights,0.4,ratio,5
+K4,2025-09-01,Prospect-Lefferts Gardens,0.16666666666666666,ratio,6
+K4,2025-09-01,Queens Village,0.6,ratio,5
+K4,2025-09-01,Richmond Hill,0.6666666666666666,ratio,6
+K4,2025-09-01,Ridgewood,0.42857142857142855,ratio,7
+K4,2025-09-01,Rosedale,0.0,ratio,5
+K4,2025-09-01,South Slope,0.16666666666666666,ratio,6
+K4,2025-09-01,Springfield Gardens,0.2,ratio,5
+K4,2025-09-01,Theater District,0.8,ratio,5
+K4,2025-09-01,Upper East Side,0.8028169014084507,ratio,71
+K4,2025-09-01,Upper West Side,0.7941176470588235,ratio,34
+K4,2025-09-01,Washington Heights,0.4166666666666667,ratio,12
+K4,2025-09-01,West Village,0.5,ratio,14
+K4,2025-09-01,Williamsburg,0.38636363636363635,ratio,44
+K4,2025-09-01,Windsor Terrace,0.14285714285714285,ratio,7
+K4,2025-11-01,ALL,0.5840886203423967,ratio,993
+K4,2025-11-01,Astoria,0.5454545454545454,ratio,11
+K4,2025-11-01,Bedford-Stuyvesant,0.45161290322580644,ratio,62
+K4,2025-11-01,Boerum Hill,0.5,ratio,6
+K4,2025-11-01,Brownsville,0.0,ratio,5
+K4,2025-11-01,Bushwick,0.4642857142857143,ratio,28
+K4,2025-11-01,Cambria Heights,0.4,ratio,5
+K4,2025-11-01,Canarsie,0.2727272727272727,ratio,11
+K4,2025-11-01,Chelsea,0.7619047619047619,ratio,21
+K4,2025-11-01,Clinton Hill,0.2857142857142857,ratio,7
+K4,2025-11-01,Crown Heights,0.7142857142857143,ratio,35
+K4,2025-11-01,Cypress Hills,0.4,ratio,5
+K4,2025-11-01,East Elmhurst,0.5,ratio,6
+K4,2025-11-01,East Flatbush,0.6190476190476191,ratio,21
+K4,2025-11-01,East Harlem,0.5652173913043478,ratio,23
+K4,2025-11-01,East New York,0.25,ratio,12
+K4,2025-11-01,East Village,0.5357142857142857,ratio,28
+K4,2025-11-01,Elmhurst,0.6,ratio,5
+K4,2025-11-01,Financial District,0.8235294117647058,ratio,17
+K4,2025-11-01,Flatbush,0.46153846153846156,ratio,13
+K4,2025-11-01,Flushing,0.7142857142857143,ratio,7
+K4,2025-11-01,Forest Hills,0.3333333333333333,ratio,6
+K4,2025-11-01,Fort Greene,0.3333333333333333,ratio,6
+K4,2025-11-01,Fort Hamilton,0.875,ratio,8
+K4,2025-11-01,Gramercy,0.6923076923076923,ratio,13
+K4,2025-11-01,Greenpoint,0.5714285714285714,ratio,7
+K4,2025-11-01,Greenwich Village,0.5714285714285714,ratio,7
+K4,2025-11-01,Harlem,0.5348837209302325,ratio,43
+K4,2025-11-01,Hell's Kitchen,0.8571428571428571,ratio,49
+K4,2025-11-01,Jamaica,0.3333333333333333,ratio,6
+K4,2025-11-01,Kips Bay,0.6153846153846154,ratio,13
+K4,2025-11-01,Little Italy,1.0,ratio,7
+K4,2025-11-01,Long Island City,0.8,ratio,5
+K4,2025-11-01,Lower East Side,0.625,ratio,16
+K4,2025-11-01,Midtown,0.8852459016393442,ratio,61
+K4,2025-11-01,Mott Haven,0.2,ratio,5
+K4,2025-11-01,Murray Hill,0.9444444444444444,ratio,18
+K4,2025-11-01,Park Slope,0.2857142857142857,ratio,14
+K4,2025-11-01,Prospect Heights,0.4,ratio,5
+K4,2025-11-01,Prospect-Lefferts Gardens,0.16666666666666666,ratio,6
+K4,2025-11-01,Queens Village,0.6,ratio,5
+K4,2025-11-01,Richmond Hill,0.6666666666666666,ratio,6
+K4,2025-11-01,Ridgewood,0.5714285714285714,ratio,7
+K4,2025-11-01,Rosedale,0.0,ratio,5
+K4,2025-11-01,South Slope,0.16666666666666666,ratio,6
+K4,2025-11-01,Springfield Gardens,0.2,ratio,5
+K4,2025-11-01,Theater District,0.8,ratio,5
+K4,2025-11-01,Upper East Side,0.7910447761194029,ratio,67
+K4,2025-11-01,Upper West Side,0.7941176470588235,ratio,34
+K4,2025-11-01,Washington Heights,0.4166666666666667,ratio,12
+K4,2025-11-01,West Village,0.42857142857142855,ratio,14
+K4,2025-11-01,Williamsburg,0.38636363636363635,ratio,44
+K4,2025-11-01,Windsor Terrace,0.14285714285714285,ratio,7
+K4,2026-03-16,ALL,0.588,ratio,1000
+K4,2026-03-16,Astoria,0.5454545454545454,ratio,11
+K4,2026-03-16,Bedford-Stuyvesant,0.45161290322580644,ratio,62
+K4,2026-03-16,Boerum Hill,0.3333333333333333,ratio,6
+K4,2026-03-16,Brownsville,0.0,ratio,5
+K4,2026-03-16,Bushwick,0.4642857142857143,ratio,28
+K4,2026-03-16,Cambria Heights,0.4,ratio,5
+K4,2026-03-16,Canarsie,0.2727272727272727,ratio,11
+K4,2026-03-16,Chelsea,0.7727272727272727,ratio,22
+K4,2026-03-16,Clinton Hill,0.42857142857142855,ratio,7
+K4,2026-03-16,Crown Heights,0.7142857142857143,ratio,35
+K4,2026-03-16,Cypress Hills,0.4,ratio,5
+K4,2026-03-16,East Elmhurst,0.5,ratio,6
+K4,2026-03-16,East Flatbush,0.6666666666666666,ratio,21
+K4,2026-03-16,East Harlem,0.5652173913043478,ratio,23
+K4,2026-03-16,East New York,0.25,ratio,12
+K4,2026-03-16,East Village,0.5714285714285714,ratio,28
+K4,2026-03-16,Elmhurst,0.6,ratio,5
+K4,2026-03-16,Financial District,0.8333333333333334,ratio,18
+K4,2026-03-16,Flatbush,0.46153846153846156,ratio,13
+K4,2026-03-16,Flushing,0.75,ratio,8
+K4,2026-03-16,Forest Hills,0.5,ratio,6
+K4,2026-03-16,Fort Greene,0.3333333333333333,ratio,6
+K4,2026-03-16,Fort Hamilton,0.875,ratio,8
+K4,2026-03-16,Gramercy,0.6923076923076923,ratio,13
+K4,2026-03-16,Greenpoint,0.5714285714285714,ratio,7
+K4,2026-03-16,Greenwich Village,0.7142857142857143,ratio,7
+K4,2026-03-16,Harlem,0.5348837209302325,ratio,43
+K4,2026-03-16,Hell's Kitchen,0.8367346938775511,ratio,49
+K4,2026-03-16,Jamaica,0.3333333333333333,ratio,6
+K4,2026-03-16,Kips Bay,0.6153846153846154,ratio,13
+K4,2026-03-16,Little Italy,1.0,ratio,7
+K4,2026-03-16,Long Island City,0.8,ratio,5
+K4,2026-03-16,Lower East Side,0.625,ratio,16
+K4,2026-03-16,Midtown,0.8852459016393442,ratio,61
+K4,2026-03-16,Mott Haven,0.2,ratio,5
+K4,2026-03-16,Murray Hill,0.9444444444444444,ratio,18
+K4,2026-03-16,Park Slope,0.2857142857142857,ratio,14
+K4,2026-03-16,Prospect Heights,0.4,ratio,5
+K4,2026-03-16,Prospect-Lefferts Gardens,0.16666666666666666,ratio,6
+K4,2026-03-16,Queens Village,0.6,ratio,5
+K4,2026-03-16,Richmond Hill,0.5,ratio,6
+K4,2026-03-16,Ridgewood,0.42857142857142855,ratio,7
+K4,2026-03-16,Rosedale,0.0,ratio,5
+K4,2026-03-16,South Slope,0.16666666666666666,ratio,6
+K4,2026-03-16,Springfield Gardens,0.2,ratio,5
+K4,2026-03-16,Theater District,0.8,ratio,5
+K4,2026-03-16,Upper East Side,0.8028169014084507,ratio,71
+K4,2026-03-16,Upper West Side,0.8235294117647058,ratio,34
+K4,2026-03-16,Washington Heights,0.4166666666666667,ratio,12
+K4,2026-03-16,West Village,0.35714285714285715,ratio,14
+K4,2026-03-16,Williamsburg,0.36363636363636365,ratio,44
+K4,2026-03-16,Windsor Terrace,0.14285714285714285,ratio,7
+K4,2026-06-14,ALL,0.589,ratio,1000
+K4,2026-06-14,Astoria,0.45454545454545453,ratio,11
+K4,2026-06-14,Bedford-Stuyvesant,0.46774193548387094,ratio,62
+K4,2026-06-14,Boerum Hill,0.5,ratio,6
+K4,2026-06-14,Brownsville,0.0,ratio,5
+K4,2026-06-14,Bushwick,0.42857142857142855,ratio,28
+K4,2026-06-14,Cambria Heights,0.4,ratio,5
+K4,2026-06-14,Canarsie,0.2727272727272727,ratio,11
+K4,2026-06-14,Chelsea,0.7727272727272727,ratio,22
+K4,2026-06-14,Clinton Hill,0.42857142857142855,ratio,7
+K4,2026-06-14,Crown Heights,0.7428571428571429,ratio,35
+K4,2026-06-14,Cypress Hills,0.4,ratio,5
+K4,2026-06-14,East Elmhurst,0.5,ratio,6
+K4,2026-06-14,East Flatbush,0.6666666666666666,ratio,21
+K4,2026-06-14,East Harlem,0.5652173913043478,ratio,23
+K4,2026-06-14,East New York,0.25,ratio,12
+K4,2026-06-14,East Village,0.5714285714285714,ratio,28
+K4,2026-06-14,Elmhurst,0.6,ratio,5
+K4,2026-06-14,Financial District,0.8333333333333334,ratio,18
+K4,2026-06-14,Flatbush,0.46153846153846156,ratio,13
+K4,2026-06-14,Flushing,0.75,ratio,8
+K4,2026-06-14,Forest Hills,0.3333333333333333,ratio,6
+K4,2026-06-14,Fort Greene,0.3333333333333333,ratio,6
+K4,2026-06-14,Fort Hamilton,0.875,ratio,8
+K4,2026-06-14,Gramercy,0.6153846153846154,ratio,13
+K4,2026-06-14,Greenpoint,0.5714285714285714,ratio,7
+K4,2026-06-14,Greenwich Village,0.7142857142857143,ratio,7
+K4,2026-06-14,Harlem,0.5116279069767442,ratio,43
+K4,2026-06-14,Hell's Kitchen,0.8367346938775511,ratio,49
+K4,2026-06-14,Jamaica,0.3333333333333333,ratio,6
+K4,2026-06-14,Kips Bay,0.6923076923076923,ratio,13
+K4,2026-06-14,Little Italy,1.0,ratio,7
+K4,2026-06-14,Long Island City,0.8,ratio,5
+K4,2026-06-14,Lower East Side,0.625,ratio,16
+K4,2026-06-14,Midtown,0.8852459016393442,ratio,61
+K4,2026-06-14,Mott Haven,0.2,ratio,5
+K4,2026-06-14,Murray Hill,0.9444444444444444,ratio,18
+K4,2026-06-14,Park Slope,0.2857142857142857,ratio,14
+K4,2026-06-14,Prospect Heights,0.4,ratio,5
+K4,2026-06-14,Prospect-Lefferts Gardens,0.16666666666666666,ratio,6
+K4,2026-06-14,Queens Village,0.6,ratio,5
+K4,2026-06-14,Richmond Hill,0.6666666666666666,ratio,6
+K4,2026-06-14,Ridgewood,0.42857142857142855,ratio,7
+K4,2026-06-14,Rosedale,0.0,ratio,5
+K4,2026-06-14,South Slope,0.16666666666666666,ratio,6
+K4,2026-06-14,Springfield Gardens,0.2,ratio,5
+K4,2026-06-14,Theater District,0.8,ratio,5
+K4,2026-06-14,Upper East Side,0.8028169014084507,ratio,71
+K4,2026-06-14,Upper West Side,0.8235294117647058,ratio,34
+K4,2026-06-14,Washington Heights,0.4166666666666667,ratio,12
+K4,2026-06-14,West Village,0.35714285714285715,ratio,14
+K4,2026-06-14,Williamsburg,0.36363636363636365,ratio,44
+K4,2026-06-14,Windsor Terrace,0.14285714285714285,ratio,7

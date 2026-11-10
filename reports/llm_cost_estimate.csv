@@ -1,0 +1,2 @@
+total_reviews_city,sample_size,avg_chars_per_review,est_input_tokens,est_output_tokens,price_per_1m_input_usd,price_per_1m_output_usd,est_cost_usd,note
+990170,1000,270.6,91727616,59410200,,,,ước lượng ~4 ký tự/token; điền giá từ trang giá chính thức của nhà cung cấp vào cấu hình

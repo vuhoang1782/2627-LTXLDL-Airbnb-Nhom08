@@ -1,0 +1,214 @@
+kpi_id,snapshot,area,value,unit,n
+K6,2025-09-01,ALL,6.919,review/listing,1000
+K6,2025-09-01,Astoria,4.0,review/listing,11
+K6,2025-09-01,Bedford-Stuyvesant,7.290322580645161,review/listing,62
+K6,2025-09-01,Boerum Hill,9.4,review/listing,5
+K6,2025-09-01,Brownsville,8.4,review/listing,5
+K6,2025-09-01,Bushwick,8.428571428571429,review/listing,28
+K6,2025-09-01,Cambria Heights,0.6,review/listing,5
+K6,2025-09-01,Canarsie,14.727272727272727,review/listing,11
+K6,2025-09-01,Carroll Gardens,14.4,review/listing,5
+K6,2025-09-01,Chelsea,1.1363636363636365,review/listing,22
+K6,2025-09-01,Clinton Hill,1.4285714285714286,review/listing,7
+K6,2025-09-01,Crown Heights,4.8,review/listing,35
+K6,2025-09-01,Cypress Hills,7.6,review/listing,5
+K6,2025-09-01,East Elmhurst,0.3333333333333333,review/listing,6
+K6,2025-09-01,East Flatbush,9.714285714285714,review/listing,21
+K6,2025-09-01,East Harlem,2.608695652173913,review/listing,23
+K6,2025-09-01,East New York,13.583333333333334,review/listing,12
+K6,2025-09-01,East Village,2.2857142857142856,review/listing,28
+K6,2025-09-01,Elmhurst,1.0,review/listing,5
+K6,2025-09-01,Financial District,11.333333333333334,review/listing,18
+K6,2025-09-01,Flatbush,2.6923076923076925,review/listing,13
+K6,2025-09-01,Flushing,11.0,review/listing,8
+K6,2025-09-01,Forest Hills,15.166666666666666,review/listing,6
+K6,2025-09-01,Fort Greene,2.5,review/listing,6
+K6,2025-09-01,Fort Hamilton,35.875,review/listing,8
+K6,2025-09-01,Gramercy,16.0,review/listing,13
+K6,2025-09-01,Greenpoint,2.2857142857142856,review/listing,7
+K6,2025-09-01,Greenwich Village,1.0,review/listing,7
+K6,2025-09-01,Harlem,6.767441860465116,review/listing,43
+K6,2025-09-01,Hell's Kitchen,4.918367346938775,review/listing,49
+K6,2025-09-01,Jamaica,5.833333333333333,review/listing,6
+K6,2025-09-01,Kips Bay,9.615384615384615,review/listing,13
+K6,2025-09-01,Little Italy,2.5714285714285716,review/listing,7
+K6,2025-09-01,Long Island City,1.2,review/listing,5
+K6,2025-09-01,Lower East Side,7.6875,review/listing,16
+K6,2025-09-01,Midtown,15.59016393442623,review/listing,61
+K6,2025-09-01,Mott Haven,2.4,review/listing,5
+K6,2025-09-01,Murray Hill,1.1111111111111112,review/listing,18
+K6,2025-09-01,Park Slope,8.714285714285714,review/listing,14
+K6,2025-09-01,Prospect Heights,8.0,review/listing,5
+K6,2025-09-01,Prospect-Lefferts Gardens,0.16666666666666666,review/listing,6
+K6,2025-09-01,Queens Village,2.0,review/listing,5
+K6,2025-09-01,Richmond Hill,24.0,review/listing,6
+K6,2025-09-01,Ridgewood,8.428571428571429,review/listing,7
+K6,2025-09-01,Rosedale,0.2,review/listing,5
+K6,2025-09-01,South Slope,2.1666666666666665,review/listing,6
+K6,2025-09-01,Springfield Gardens,9.2,review/listing,5
+K6,2025-09-01,Theater District,9.6,review/listing,5
+K6,2025-09-01,Upper East Side,3.915492957746479,review/listing,71
+K6,2025-09-01,Upper West Side,1.7941176470588236,review/listing,34
+K6,2025-09-01,Washington Heights,4.416666666666667,review/listing,12
+K6,2025-09-01,West Village,4.357142857142857,review/listing,14
+K6,2025-09-01,Williamsburg,2.9318181818181817,review/listing,44
+K6,2025-09-01,Windsor Terrace,4.571428571428571,review/listing,7
+K6,2025-11-01,ALL,7.093655589123867,review/listing,993
+K6,2025-11-01,Astoria,4.7272727272727275,review/listing,11
+K6,2025-11-01,Bedford-Stuyvesant,7.048387096774194,review/listing,62
+K6,2025-11-01,Boerum Hill,6.833333333333333,review/listing,6
+K6,2025-11-01,Brownsville,8.6,review/listing,5
+K6,2025-11-01,Bushwick,8.75,review/listing,28
+K6,2025-11-01,Cambria Heights,0.2,review/listing,5
+K6,2025-11-01,Canarsie,14.818181818181818,review/listing,11
+K6,2025-11-01,Chelsea,0.9523809523809523,review/listing,21
+K6,2025-11-01,Clinton Hill,1.5714285714285714,review/listing,7
+K6,2025-11-01,Crown Heights,4.771428571428571,review/listing,35
+K6,2025-11-01,Cypress Hills,6.8,review/listing,5
+K6,2025-11-01,East Elmhurst,0.16666666666666666,review/listing,6
+K6,2025-11-01,East Flatbush,9.523809523809524,review/listing,21
+K6,2025-11-01,East Harlem,3.130434782608696,review/listing,23
+K6,2025-11-01,East New York,13.75,review/listing,12
+K6,2025-11-01,East Village,2.25,review/listing,28
+K6,2025-11-01,Elmhurst,1.0,review/listing,5
+K6,2025-11-01,Financial District,14.470588235294118,review/listing,17
+K6,2025-11-01,Flatbush,3.6923076923076925,review/listing,13
+K6,2025-11-01,Flushing,5.857142857142857,review/listing,7
+K6,2025-11-01,Forest Hills,16.333333333333332,review/listing,6
+K6,2025-11-01,Fort Greene,2.0,review/listing,6
+K6,2025-11-01,Fort Hamilton,34.75,review/listing,8
+K6,2025-11-01,Gramercy,16.307692307692307,review/listing,13
+K6,2025-11-01,Greenpoint,2.4285714285714284,review/listing,7
+K6,2025-11-01,Greenwich Village,0.8571428571428571,review/listing,7
+K6,2025-11-01,Harlem,7.186046511627907,review/listing,43
+K6,2025-11-01,Hell's Kitchen,4.918367346938775,review/listing,49
+K6,2025-11-01,Jamaica,5.833333333333333,review/listing,6
+K6,2025-11-01,Kips Bay,8.846153846153847,review/listing,13
+K6,2025-11-01,Little Italy,2.2857142857142856,review/listing,7
+K6,2025-11-01,Long Island City,1.0,review/listing,5
+K6,2025-11-01,Lower East Side,6.875,review/listing,16
+K6,2025-11-01,Midtown,15.885245901639344,review/listing,61
+K6,2025-11-01,Mott Haven,2.6,review/listing,5
+K6,2025-11-01,Murray Hill,1.6666666666666667,review/listing,18
+K6,2025-11-01,Park Slope,9.571428571428571,review/listing,14
+K6,2025-11-01,Prospect Heights,8.0,review/listing,5
+K6,2025-11-01,Prospect-Lefferts Gardens,0.16666666666666666,review/listing,6
+K6,2025-11-01,Queens Village,1.6,review/listing,5
+K6,2025-11-01,Richmond Hill,22.833333333333332,review/listing,6
+K6,2025-11-01,Ridgewood,9.0,review/listing,7
+K6,2025-11-01,Rosedale,0.0,review/listing,5
+K6,2025-11-01,South Slope,1.8333333333333333,review/listing,6
+K6,2025-11-01,Springfield Gardens,9.2,review/listing,5
+K6,2025-11-01,Theater District,9.4,review/listing,5
+K6,2025-11-01,Upper East Side,4.746268656716418,review/listing,67
+K6,2025-11-01,Upper West Side,2.0588235294117645,review/listing,34
+K6,2025-11-01,Washington Heights,4.083333333333333,review/listing,12
+K6,2025-11-01,West Village,4.928571428571429,review/listing,14
+K6,2025-11-01,Williamsburg,3.7954545454545454,review/listing,44
+K6,2025-11-01,Windsor Terrace,4.714285714285714,review/listing,7
+K6,2026-03-16,ALL,7.315,review/listing,1000
+K6,2026-03-16,Astoria,5.7272727272727275,review/listing,11
+K6,2026-03-16,Bedford-Stuyvesant,7.306451612903226,review/listing,62
+K6,2026-03-16,Boerum Hill,6.833333333333333,review/listing,6
+K6,2026-03-16,Brownsville,10.2,review/listing,5
+K6,2026-03-16,Bushwick,8.607142857142858,review/listing,28
+K6,2026-03-16,Cambria Heights,0.4,review/listing,5
+K6,2026-03-16,Canarsie,13.727272727272727,review/listing,11
+K6,2026-03-16,Chelsea,1.2272727272727273,review/listing,22
+K6,2026-03-16,Clinton Hill,1.8571428571428572,review/listing,7
+K6,2026-03-16,Crown Heights,4.6571428571428575,review/listing,35
+K6,2026-03-16,Cypress Hills,7.2,review/listing,5
+K6,2026-03-16,East Elmhurst,0.16666666666666666,review/listing,6
+K6,2026-03-16,East Flatbush,8.571428571428571,review/listing,21
+K6,2026-03-16,East Harlem,3.5652173913043477,review/listing,23
+K6,2026-03-16,East New York,12.916666666666666,review/listing,12
+K6,2026-03-16,East Village,2.4285714285714284,review/listing,28
+K6,2026-03-16,Elmhurst,1.6,review/listing,5
+K6,2026-03-16,Financial District,14.833333333333334,review/listing,18
+K6,2026-03-16,Flatbush,5.153846153846154,review/listing,13
+K6,2026-03-16,Flushing,10.75,review/listing,8
+K6,2026-03-16,Forest Hills,16.5,review/listing,6
+K6,2026-03-16,Fort Greene,1.1666666666666667,review/listing,6
+K6,2026-03-16,Fort Hamilton,34.5,review/listing,8
+K6,2026-03-16,Gramercy,15.923076923076923,review/listing,13
+K6,2026-03-16,Greenpoint,2.4285714285714284,review/listing,7
+K6,2026-03-16,Greenwich Village,1.2857142857142858,review/listing,7
+K6,2026-03-16,Harlem,7.162790697674419,review/listing,43
+K6,2026-03-16,Hell's Kitchen,5.122448979591836,review/listing,49
+K6,2026-03-16,Jamaica,7.333333333333333,review/listing,6
+K6,2026-03-16,Kips Bay,6.3076923076923075,review/listing,13
+K6,2026-03-16,Little Italy,3.142857142857143,review/listing,7
+K6,2026-03-16,Long Island City,1.2,review/listing,5
+K6,2026-03-16,Lower East Side,6.3125,review/listing,16
+K6,2026-03-16,Midtown,17.40983606557377,review/listing,61
+K6,2026-03-16,Mott Haven,2.4,review/listing,5
+K6,2026-03-16,Murray Hill,2.2777777777777777,review/listing,18
+K6,2026-03-16,Park Slope,10.857142857142858,review/listing,14
+K6,2026-03-16,Prospect Heights,8.4,review/listing,5
+K6,2026-03-16,Prospect-Lefferts Gardens,0.5,review/listing,6
+K6,2026-03-16,Queens Village,1.4,review/listing,5
+K6,2026-03-16,Richmond Hill,20.166666666666668,review/listing,6
+K6,2026-03-16,Ridgewood,10.571428571428571,review/listing,7
+K6,2026-03-16,Rosedale,0.0,review/listing,5
+K6,2026-03-16,South Slope,1.8333333333333333,review/listing,6
+K6,2026-03-16,Springfield Gardens,8.0,review/listing,5
+K6,2026-03-16,Theater District,9.4,review/listing,5
+K6,2026-03-16,Upper East Side,5.535211267605634,review/listing,71
+K6,2026-03-16,Upper West Side,2.323529411764706,review/listing,34
+K6,2026-03-16,Washington Heights,4.166666666666667,review/listing,12
+K6,2026-03-16,West Village,5.714285714285714,review/listing,14
+K6,2026-03-16,Williamsburg,4.295454545454546,review/listing,44
+K6,2026-03-16,Windsor Terrace,5.428571428571429,review/listing,7
+K6,2026-06-14,ALL,7.179,review/listing,1000
+K6,2026-06-14,Astoria,5.909090909090909,review/listing,11
+K6,2026-06-14,Bedford-Stuyvesant,6.983870967741935,review/listing,62
+K6,2026-06-14,Boerum Hill,6.333333333333333,review/listing,6
+K6,2026-06-14,Brownsville,10.0,review/listing,5
+K6,2026-06-14,Bushwick,7.821428571428571,review/listing,28
+K6,2026-06-14,Cambria Heights,0.6,review/listing,5
+K6,2026-06-14,Canarsie,13.272727272727273,review/listing,11
+K6,2026-06-14,Chelsea,1.3636363636363635,review/listing,22
+K6,2026-06-14,Clinton Hill,2.0,review/listing,7
+K6,2026-06-14,Crown Heights,4.2,review/listing,35
+K6,2026-06-14,Cypress Hills,7.4,review/listing,5
+K6,2026-06-14,East Elmhurst,0.3333333333333333,review/listing,6
+K6,2026-06-14,East Flatbush,8.428571428571429,review/listing,21
+K6,2026-06-14,East Harlem,3.652173913043478,review/listing,23
+K6,2026-06-14,East New York,10.916666666666666,review/listing,12
+K6,2026-06-14,East Village,2.7857142857142856,review/listing,28
+K6,2026-06-14,Elmhurst,1.8,review/listing,5
+K6,2026-06-14,Financial District,13.444444444444445,review/listing,18
+K6,2026-06-14,Flatbush,5.230769230769231,review/listing,13
+K6,2026-06-14,Flushing,9.75,review/listing,8
+K6,2026-06-14,Forest Hills,14.333333333333334,review/listing,6
+K6,2026-06-14,Fort Greene,0.8333333333333334,review/listing,6
+K6,2026-06-14,Fort Hamilton,37.25,review/listing,8
+K6,2026-06-14,Gramercy,15.923076923076923,review/listing,13
+K6,2026-06-14,Greenpoint,2.4285714285714284,review/listing,7
+K6,2026-06-14,Greenwich Village,1.4285714285714286,review/listing,7
+K6,2026-06-14,Harlem,6.604651162790698,review/listing,43
+K6,2026-06-14,Hell's Kitchen,5.326530612244898,review/listing,49
+K6,2026-06-14,Jamaica,7.833333333333333,review/listing,6
+K6,2026-06-14,Kips Bay,5.615384615384615,review/listing,13
+K6,2026-06-14,Little Italy,3.2857142857142856,review/listing,7
+K6,2026-06-14,Long Island City,1.0,review/listing,5
+K6,2026-06-14,Lower East Side,6.0,review/listing,16
+K6,2026-06-14,Midtown,18.40983606557377,review/listing,61
+K6,2026-06-14,Mott Haven,1.6,review/listing,5
+K6,2026-06-14,Murray Hill,2.611111111111111,review/listing,18
+K6,2026-06-14,Park Slope,11.071428571428571,review/listing,14
+K6,2026-06-14,Prospect Heights,7.4,review/listing,5
+K6,2026-06-14,Prospect-Lefferts Gardens,0.5,review/listing,6
+K6,2026-06-14,Queens Village,1.0,review/listing,5
+K6,2026-06-14,Richmond Hill,17.666666666666668,review/listing,6
+K6,2026-06-14,Ridgewood,10.857142857142858,review/listing,7
+K6,2026-06-14,Rosedale,0.0,review/listing,5
+K6,2026-06-14,South Slope,1.3333333333333333,review/listing,6
+K6,2026-06-14,Springfield Gardens,7.2,review/listing,5
+K6,2026-06-14,Theater District,10.0,review/listing,5
+K6,2026-06-14,Upper East Side,5.492957746478873,review/listing,71
+K6,2026-06-14,Upper West Side,1.911764705882353,review/listing,34
+K6,2026-06-14,Washington Heights,4.0,review/listing,12
+K6,2026-06-14,West Village,6.857142857142857,review/listing,14
+K6,2026-06-14,Williamsburg,4.431818181818182,review/listing,44
+K6,2026-06-14,Windsor Terrace,5.142857142857143,review/listing,7

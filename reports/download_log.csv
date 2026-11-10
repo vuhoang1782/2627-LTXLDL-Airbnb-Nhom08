@@ -1,0 +1,13 @@
+snapshot,table,status,bytes,url
+2025-09-01,listings,exists,17809878,https://data.insideairbnb.com/united-states/ny/new-york-city/2025-09-01/data/listings.csv.gz
+2025-09-01,calendar,exists,30746999,https://data.insideairbnb.com/united-states/ny/new-york-city/2025-09-01/data/calendar.csv.gz
+2025-09-01,reviews,exists,118206134,https://data.insideairbnb.com/united-states/ny/new-york-city/2025-09-01/data/reviews.csv.gz
+2025-11-01,listings,exists,17754774,https://data.insideairbnb.com/united-states/ny/new-york-city/2025-11-01/data/listings.csv.gz
+2025-11-01,calendar,exists,31144364,https://data.insideairbnb.com/united-states/ny/new-york-city/2025-11-01/data/calendar.csv.gz
+2025-11-01,reviews,exists,120761250,https://data.insideairbnb.com/united-states/ny/new-york-city/2025-11-01/data/reviews.csv.gz
+2026-03-16,listings,exists,17574953,https://data.insideairbnb.com/united-states/ny/new-york-city/2026-03-16/data/listings.csv.gz
+2026-03-16,calendar,exists,29347960,https://data.insideairbnb.com/united-states/ny/new-york-city/2026-03-16/data/calendar.csv.gz
+2026-03-16,reviews,exists,121109311,https://data.insideairbnb.com/united-states/ny/new-york-city/2026-03-16/data/reviews.csv.gz
+2026-06-14,listings,exists,15694632,https://data.insideairbnb.com/united-states/ny/new-york-city/2026-06-14/data/listings.csv.gz
+2026-06-14,calendar,exists,25904041,https://data.insideairbnb.com/united-states/ny/new-york-city/2026-06-14/data/calendar.csv.gz
+2026-06-14,reviews,exists,119440985,https://data.insideairbnb.com/united-states/ny/new-york-city/2026-06-14/data/reviews.csv.gz

@@ -1,0 +1,85 @@
+snapshot,table,rule,condition,reason,action,rows_affected,kpi_name,kpi_before,kpi_after
+2025-09-01,calendar,C_TYPE_DATE,date không đọc được thành ngày,cần cột ngày đúng kiểu để nhóm theo thời gian,"chuyển sang datetime, lỗi -> NaT",0,,,
+2025-09-01,calendar,C_TYPE_AVAILABLE,available không phải t/f,tính tỉ lệ ngày trống cần giá trị 0/1,"chuyển t/f -> 1/0, giá trị lạ -> NaN",0,,,
+2025-09-01,calendar,C_DUP_WITHIN,"trùng khoá ['listing_id', 'date'] trong cùng mốc",mỗi listing-ngày chỉ được có một dòng,"xoá bản trùng, giữ dòng đầu",0,n_calendar_rows,365000.0,365000.0
+2025-09-01,reviews,R_HTML_TAGS,comments chứa thẻ <br/>,thẻ HTML làm nhiễu văn bản đưa vào LLM/baseline,"thay bằng khoảng trắng, lưu ở comment_clean",754,,,
+2025-09-01,reviews,R_TYPE_DATE,date không đọc được thành ngày,cần cột ngày đúng kiểu để nhóm theo thời gian,"chuyển sang datetime, lỗi -> NaT",0,,,
+2025-09-01,reviews,R_DUP_WITHIN,trùng khoá ['id'] trong cùng mốc,một review chỉ được tính một lần,"xoá bản trùng, giữ dòng đầu",0,n_reviews,5000.0,5000.0
+2025-09-01,reviews,R_EMPTY_COMMENT,comment rỗng sau khi làm sạch,không có văn bản thì LLM/baseline không có gì để phân tích,"gắn cờ empty_comment, loại khỏi mẫu LLM",0,n_reviews_llm_eligible,5000.0,5000.0
+2025-09-01,listings,L_HIGH_NAN_COLS,cột có >= 90% ô rỗng: calendar_updated,cột gần như trống không đủ dữ liệu để tính KPI,"gắn cờ cột (unusable_columns.json), không dùng cho KPI",1,n_columns_usable,79.0,78.0
+2025-09-01,listings,L_DUP_WITHIN,trùng khoá ['id'] trong cùng mốc,mỗi listing chỉ được tính một lần,"xoá bản trùng, giữ dòng đầu",0,n_listings,1000.0,1000.0
+2025-09-01,listings,L_TYPE_PRICE,"price là chuỗi ('$1,250.00') hoặc không đọc được thành số",cần số để tính KPI giá,bỏ ký hiệu tiền/dấu phẩy -> price_usd (USD); lỗi -> NaN,0,,,
+2025-09-01,listings,L_TYPE_DATE,cột ngày không đọc được,cần datetime đúng kiểu,"chuyển sang datetime, lỗi -> NaT",0,,,
+2025-09-01,listings,L_MISSING_PRICE,price rỗng,không thể tính KPI giá cho listing này,"gắn cờ price_missing, loại khỏi KPI giá",92,n_listings_with_price,1000.0,908.0
+2025-09-01,listings,L_OUTLIER_PRICE,price_usd < 10 hoặc > 5000,giá cực đoan làm lệch trung bình; thường do nhập sai hoặc giá giữ chỗ,"gắn cờ price_outlier, loại khỏi KPI giá",0,median_price_usd,170.0,170.0
+2025-09-01,listings,L_OUTLIER_MIN_NIGHTS,minimum_nights > 365,giá trị vô lý (hơn 1 năm),gắn cờ min_nights_outlier,0,mean_minimum_nights,26.412,26.412
+2025-09-01,listings,L_CATEGORY_ROOM_TYPE,"room_type ngoài ['Entire home/apt', 'Private room', 'Hotel room', 'Shared room']",nhãn lạ làm sai thống kê theo loại phòng,gắn cờ unknown_room_type,0,n_listings,1000.0,1000.0
+2025-09-01,listings,L_CATEGORY_IMBALANCE,loại phòng 'Entire home/apt' chiếm 87.5% (>= 80%),một nhóm áp đảo làm số trung bình chung phản ánh gần như chỉ nhóm đó,"ghi chú: báo cáo KPI theo từng loại phòng, không chỉ gộp",125,,,
+2025-09-01,listings,L_SPARSE_AREA,khu vực có < 5 listing,"mẫu quá nhỏ, KPI theo khu vực không ổn định","gắn cờ sparse_neighbourhood, không công bố KPI cho khu vực đó",149,,,
+2025-09-01,listings,L_BAD_COORDS,toạ độ rỗng hoặc ngoài khung thành phố,listing sai vị trí làm sai bản đồ/KPI không gian,gắn cờ bad_coords,0,,,
+2025-09-01,listings,L_SCRAPE_DATE,last_scraped lệch mốc > 7 ngày,dòng không thuộc đúng bản chụp,gắn cờ scrape_date_mismatch,0,,,
+2025-09-01,listings,L_CALENDAR_COMPLETE,số ngày trong calendar != 365,thiếu ngày làm sai tỉ lệ ngày trống,gắn cờ calendar_incomplete,0,,,
+2025-11-01,calendar,C_TYPE_DATE,date không đọc được thành ngày,cần cột ngày đúng kiểu để nhóm theo thời gian,"chuyển sang datetime, lỗi -> NaT",0,,,
+2025-11-01,calendar,C_TYPE_AVAILABLE,available không phải t/f,tính tỉ lệ ngày trống cần giá trị 0/1,"chuyển t/f -> 1/0, giá trị lạ -> NaN",0,,,
+2025-11-01,calendar,C_DUP_WITHIN,"trùng khoá ['listing_id', 'date'] trong cùng mốc",mỗi listing-ngày chỉ được có một dòng,"xoá bản trùng, giữ dòng đầu",0,n_calendar_rows,362445.0,362445.0
+2025-11-01,reviews,R_HTML_TAGS,comments chứa thẻ <br/>,thẻ HTML làm nhiễu văn bản đưa vào LLM/baseline,"thay bằng khoảng trắng, lưu ở comment_clean",753,,,
+2025-11-01,reviews,R_TYPE_DATE,date không đọc được thành ngày,cần cột ngày đúng kiểu để nhóm theo thời gian,"chuyển sang datetime, lỗi -> NaT",0,,,
+2025-11-01,reviews,R_DUP_WITHIN,trùng khoá ['id'] trong cùng mốc,một review chỉ được tính một lần,"xoá bản trùng, giữ dòng đầu",0,n_reviews,4992.0,4992.0
+2025-11-01,reviews,R_EMPTY_COMMENT,comment rỗng sau khi làm sạch,không có văn bản thì LLM/baseline không có gì để phân tích,"gắn cờ empty_comment, loại khỏi mẫu LLM",0,n_reviews_llm_eligible,4992.0,4992.0
+2025-11-01,listings,L_HIGH_NAN_COLS,cột có >= 90% ô rỗng: calendar_updated,cột gần như trống không đủ dữ liệu để tính KPI,"gắn cờ cột (unusable_columns.json), không dùng cho KPI",1,n_columns_usable,79.0,78.0
+2025-11-01,listings,L_DUP_WITHIN,trùng khoá ['id'] trong cùng mốc,mỗi listing chỉ được tính một lần,"xoá bản trùng, giữ dòng đầu",0,n_listings,993.0,993.0
+2025-11-01,listings,L_TYPE_PRICE,"price là chuỗi ('$1,250.00') hoặc không đọc được thành số",cần số để tính KPI giá,bỏ ký hiệu tiền/dấu phẩy -> price_usd (USD); lỗi -> NaN,0,,,
+2025-11-01,listings,L_TYPE_DATE,cột ngày không đọc được,cần datetime đúng kiểu,"chuyển sang datetime, lỗi -> NaT",0,,,
+2025-11-01,listings,L_MISSING_PRICE,price rỗng,không thể tính KPI giá cho listing này,"gắn cờ price_missing, loại khỏi KPI giá",82,n_listings_with_price,993.0,911.0
+2025-11-01,listings,L_OUTLIER_PRICE,price_usd < 10 hoặc > 5000,giá cực đoan làm lệch trung bình; thường do nhập sai hoặc giá giữ chỗ,"gắn cờ price_outlier, loại khỏi KPI giá",0,median_price_usd,174.0,174.0
+2025-11-01,listings,L_OUTLIER_MIN_NIGHTS,minimum_nights > 365,giá trị vô lý (hơn 1 năm),gắn cờ min_nights_outlier,0,mean_minimum_nights,26.51460221550856,26.51460221550856
+2025-11-01,listings,L_CATEGORY_ROOM_TYPE,"room_type ngoài ['Entire home/apt', 'Private room', 'Hotel room', 'Shared room']",nhãn lạ làm sai thống kê theo loại phòng,gắn cờ unknown_room_type,0,n_listings,993.0,993.0
+2025-11-01,listings,L_CATEGORY_IMBALANCE,loại phòng 'Entire home/apt' chiếm 87.4% (>= 80%),một nhóm áp đảo làm số trung bình chung phản ánh gần như chỉ nhóm đó,"ghi chú: báo cáo KPI theo từng loại phòng, không chỉ gộp",125,,,
+2025-11-01,listings,L_SPARSE_AREA,khu vực có < 5 listing,"mẫu quá nhỏ, KPI theo khu vực không ổn định","gắn cờ sparse_neighbourhood, không công bố KPI cho khu vực đó",153,,,
+2025-11-01,listings,L_BAD_COORDS,toạ độ rỗng hoặc ngoài khung thành phố,listing sai vị trí làm sai bản đồ/KPI không gian,gắn cờ bad_coords,0,,,
+2025-11-01,listings,L_SCRAPE_DATE,last_scraped lệch mốc > 7 ngày,dòng không thuộc đúng bản chụp,gắn cờ scrape_date_mismatch,0,,,
+2025-11-01,listings,L_CALENDAR_COMPLETE,số ngày trong calendar != 365,thiếu ngày làm sai tỉ lệ ngày trống,gắn cờ calendar_incomplete,0,,,
+2026-03-16,calendar,C_TYPE_DATE,date không đọc được thành ngày,cần cột ngày đúng kiểu để nhóm theo thời gian,"chuyển sang datetime, lỗi -> NaT",0,,,
+2026-03-16,calendar,C_TYPE_AVAILABLE,available không phải t/f,tính tỉ lệ ngày trống cần giá trị 0/1,"chuyển t/f -> 1/0, giá trị lạ -> NaN",0,,,
+2026-03-16,calendar,C_DUP_WITHIN,"trùng khoá ['listing_id', 'date'] trong cùng mốc",mỗi listing-ngày chỉ được có một dòng,"xoá bản trùng, giữ dòng đầu",0,n_calendar_rows,365000.0,365000.0
+2026-03-16,reviews,R_HTML_TAGS,comments chứa thẻ <br/>,thẻ HTML làm nhiễu văn bản đưa vào LLM/baseline,"thay bằng khoảng trắng, lưu ở comment_clean",754,,,
+2026-03-16,reviews,R_TYPE_DATE,date không đọc được thành ngày,cần cột ngày đúng kiểu để nhóm theo thời gian,"chuyển sang datetime, lỗi -> NaT",0,,,
+2026-03-16,reviews,R_DUP_WITHIN,trùng khoá ['id'] trong cùng mốc,một review chỉ được tính một lần,"xoá bản trùng, giữ dòng đầu",0,n_reviews,5000.0,5000.0
+2026-03-16,reviews,R_EMPTY_COMMENT,comment rỗng sau khi làm sạch,không có văn bản thì LLM/baseline không có gì để phân tích,"gắn cờ empty_comment, loại khỏi mẫu LLM",0,n_reviews_llm_eligible,5000.0,5000.0
+2026-03-16,listings,L_HIGH_NAN_COLS,"cột có >= 90% ô rỗng: neighborhood_overview, host_since, host_response_time, host_response_rate, host_acceptance_rate, host_thumbnail_url, host_neighbourhood, host_total_listings_count, host_verifications, neighbourhood, calendar_updated, instant_bookable",cột gần như trống không đủ dữ liệu để tính KPI,"gắn cờ cột (unusable_columns.json), không dùng cho KPI",12,n_columns_usable,90.0,78.0
+2026-03-16,listings,L_DUP_WITHIN,trùng khoá ['id'] trong cùng mốc,mỗi listing chỉ được tính một lần,"xoá bản trùng, giữ dòng đầu",0,n_listings,1000.0,1000.0
+2026-03-16,listings,L_TYPE_PRICE,"price là chuỗi ('$1,250.00') hoặc không đọc được thành số",cần số để tính KPI giá,bỏ ký hiệu tiền/dấu phẩy -> price_usd (USD); lỗi -> NaN,0,,,
+2026-03-16,listings,L_TYPE_DATE,cột ngày không đọc được,cần datetime đúng kiểu,"chuyển sang datetime, lỗi -> NaT",0,,,
+2026-03-16,listings,L_MISSING_PRICE,price rỗng,không thể tính KPI giá cho listing này,"gắn cờ price_missing, loại khỏi KPI giá",61,n_listings_with_price,1000.0,939.0
+2026-03-16,listings,L_OUTLIER_PRICE,price_usd < 10 hoặc > 5000,giá cực đoan làm lệch trung bình; thường do nhập sai hoặc giá giữ chỗ,"gắn cờ price_outlier, loại khỏi KPI giá",1,median_price_usd,179.3,179.215
+2026-03-16,listings,L_OUTLIER_MIN_NIGHTS,minimum_nights > 365,giá trị vô lý (hơn 1 năm),gắn cờ min_nights_outlier,0,mean_minimum_nights,26.199,26.199
+2026-03-16,listings,L_CATEGORY_ROOM_TYPE,"room_type ngoài ['Entire home/apt', 'Private room', 'Hotel room', 'Shared room']",nhãn lạ làm sai thống kê theo loại phòng,gắn cờ unknown_room_type,0,n_listings,1000.0,1000.0
+2026-03-16,listings,L_CATEGORY_IMBALANCE,loại phòng 'Entire home/apt' chiếm 87.5% (>= 80%),một nhóm áp đảo làm số trung bình chung phản ánh gần như chỉ nhóm đó,"ghi chú: báo cáo KPI theo từng loại phòng, không chỉ gộp",125,,,
+2026-03-16,listings,L_SPARSE_AREA,khu vực có < 5 listing,"mẫu quá nhỏ, KPI theo khu vực không ổn định","gắn cờ sparse_neighbourhood, không công bố KPI cho khu vực đó",153,,,
+2026-03-16,listings,L_BAD_COORDS,toạ độ rỗng hoặc ngoài khung thành phố,listing sai vị trí làm sai bản đồ/KPI không gian,gắn cờ bad_coords,0,,,
+2026-03-16,listings,L_SCRAPE_DATE,last_scraped lệch mốc > 7 ngày,dòng không thuộc đúng bản chụp,gắn cờ scrape_date_mismatch,0,,,
+2026-03-16,listings,L_CALENDAR_COMPLETE,số ngày trong calendar != 365,thiếu ngày làm sai tỉ lệ ngày trống,gắn cờ calendar_incomplete,0,,,
+2026-06-14,calendar,C_TYPE_DATE,date không đọc được thành ngày,cần cột ngày đúng kiểu để nhóm theo thời gian,"chuyển sang datetime, lỗi -> NaT",0,,,
+2026-06-14,calendar,C_TYPE_AVAILABLE,available không phải t/f,tính tỉ lệ ngày trống cần giá trị 0/1,"chuyển t/f -> 1/0, giá trị lạ -> NaN",0,,,
+2026-06-14,calendar,C_DUP_WITHIN,"trùng khoá ['listing_id', 'date'] trong cùng mốc",mỗi listing-ngày chỉ được có một dòng,"xoá bản trùng, giữ dòng đầu",0,n_calendar_rows,365000.0,365000.0
+2026-06-14,reviews,R_HTML_TAGS,comments chứa thẻ <br/>,thẻ HTML làm nhiễu văn bản đưa vào LLM/baseline,"thay bằng khoảng trắng, lưu ở comment_clean",754,,,
+2026-06-14,reviews,R_TYPE_DATE,date không đọc được thành ngày,cần cột ngày đúng kiểu để nhóm theo thời gian,"chuyển sang datetime, lỗi -> NaT",0,,,
+2026-06-14,reviews,R_DUP_WITHIN,trùng khoá ['id'] trong cùng mốc,một review chỉ được tính một lần,"xoá bản trùng, giữ dòng đầu",0,n_reviews,5000.0,5000.0
+2026-06-14,reviews,R_EMPTY_COMMENT,comment rỗng sau khi làm sạch,không có văn bản thì LLM/baseline không có gì để phân tích,"gắn cờ empty_comment, loại khỏi mẫu LLM",0,n_reviews_llm_eligible,5000.0,5000.0
+2026-06-14,listings,L_HIGH_NAN_COLS,"cột có >= 90% ô rỗng: neighborhood_overview, host_since, host_response_time, host_response_rate, host_acceptance_rate, host_thumbnail_url, host_neighbourhood, host_total_listings_count, host_verifications, neighbourhood, calendar_updated, instant_bookable",cột gần như trống không đủ dữ liệu để tính KPI,"gắn cờ cột (unusable_columns.json), không dùng cho KPI",12,n_columns_usable,90.0,78.0
+2026-06-14,listings,L_DUP_WITHIN,trùng khoá ['id'] trong cùng mốc,mỗi listing chỉ được tính một lần,"xoá bản trùng, giữ dòng đầu",0,n_listings,1000.0,1000.0
+2026-06-14,listings,L_TYPE_PRICE,"price là chuỗi ('$1,250.00') hoặc không đọc được thành số",cần số để tính KPI giá,bỏ ký hiệu tiền/dấu phẩy -> price_usd (USD); lỗi -> NaN,0,,,
+2026-06-14,listings,L_TYPE_DATE,cột ngày không đọc được,cần datetime đúng kiểu,"chuyển sang datetime, lỗi -> NaT",0,,,
+2026-06-14,listings,L_MISSING_PRICE,price rỗng,không thể tính KPI giá cho listing này,"gắn cờ price_missing, loại khỏi KPI giá",20,n_listings_with_price,1000.0,980.0
+2026-06-14,listings,L_OUTLIER_PRICE,price_usd < 10 hoặc > 5000,giá cực đoan làm lệch trung bình; thường do nhập sai hoặc giá giữ chỗ,"gắn cờ price_outlier, loại khỏi KPI giá",4,median_price_usd,193.8,193.03
+2026-06-14,listings,L_OUTLIER_MIN_NIGHTS,minimum_nights > 365,giá trị vô lý (hơn 1 năm),gắn cờ min_nights_outlier,0,mean_minimum_nights,25.775,25.775
+2026-06-14,listings,L_CATEGORY_ROOM_TYPE,"room_type ngoài ['Entire home/apt', 'Private room', 'Hotel room', 'Shared room']",nhãn lạ làm sai thống kê theo loại phòng,gắn cờ unknown_room_type,0,n_listings,1000.0,1000.0
+2026-06-14,listings,L_CATEGORY_IMBALANCE,loại phòng 'Entire home/apt' chiếm 87.5% (>= 80%),một nhóm áp đảo làm số trung bình chung phản ánh gần như chỉ nhóm đó,"ghi chú: báo cáo KPI theo từng loại phòng, không chỉ gộp",125,,,
+2026-06-14,listings,L_SPARSE_AREA,khu vực có < 5 listing,"mẫu quá nhỏ, KPI theo khu vực không ổn định","gắn cờ sparse_neighbourhood, không công bố KPI cho khu vực đó",153,,,
+2026-06-14,listings,L_BAD_COORDS,toạ độ rỗng hoặc ngoài khung thành phố,listing sai vị trí làm sai bản đồ/KPI không gian,gắn cờ bad_coords,0,,,
+2026-06-14,listings,L_SCRAPE_DATE,last_scraped lệch mốc > 7 ngày,dòng không thuộc đúng bản chụp,gắn cờ scrape_date_mismatch,56,,,
+2026-06-14,listings,L_CALENDAR_COMPLETE,số ngày trong calendar != 365,thiếu ngày làm sai tỉ lệ ngày trống,gắn cờ calendar_incomplete,0,,,
+2025-09-01,listings,L_DUP_ACROSS,"cùng (id, last_scraped) xuất hiện ở nhiều mốc",bản chụp bị chép lại thì các mốc không độc lập,gắn cờ stale_across_snapshots,0,n_listings,1000.0,1000.0
+2025-11-01,listings,L_DUP_ACROSS,"cùng (id, last_scraped) xuất hiện ở nhiều mốc",bản chụp bị chép lại thì các mốc không độc lập,gắn cờ stale_across_snapshots,0,n_listings,993.0,993.0
+2026-03-16,listings,L_DUP_ACROSS,"cùng (id, last_scraped) xuất hiện ở nhiều mốc",bản chụp bị chép lại thì các mốc không độc lập,gắn cờ stale_across_snapshots,0,n_listings,1000.0,1000.0
+2026-06-14,listings,L_DUP_ACROSS,"cùng (id, last_scraped) xuất hiện ở nhiều mốc",bản chụp bị chép lại thì các mốc không độc lập,gắn cờ stale_across_snapshots,0,n_listings,1000.0,1000.0
