@@ -44,7 +44,7 @@ def make_item_model(aspects):
     """Khuôn đầu ra: chỉ chấp nhận nhãn nằm trong tập cho phép (ép được cả phía Gemini lẫn lúc kiểm tra)."""
     class Aspect(BaseModel):
         name: Literal[tuple(aspects)]
-        polarity: Literal["positive", "negative"]
+        polarity: Literal["positive", "mixed", "negative"]
 
     class Item(BaseModel):
         i: int                                   # số thứ tự trong lô, KHÔNG bắt mô hình chép lại review_id dài
