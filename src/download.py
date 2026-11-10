@@ -44,7 +44,12 @@ def download(url: str, dest: Path) -> str | None:
             
             with urllib.request.urlopen(req, timeout=TIMEOUT) as r, open(part, "wb") as f:
                 # copyfileobj đọc từng khối dữ liệu từ mạng và ghi xuống ổ cứng
+                expected = r.headers.get("Content-Length")       # có thể vắng (chunked) -> khi đó chỉ dựa vào gzip
                 shutil.copyfileobj(r, f)
+                f.flush()
+                got = f.tell()
+                if expected is not None and got != int(expected):
+                    raise OSError(f"tải thiếu: {got}/{expected} byte")   # bắt file cụt sớm, trước khi giải nén kiểm tra
                 
             # Đổi tên file tạm thành file chính thức
             part.replace(dest)
