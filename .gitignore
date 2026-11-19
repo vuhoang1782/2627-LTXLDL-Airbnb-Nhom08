@@ -1,0 +1,13 @@
+# dữ liệu thô: KHÔNG commit (đề bắt buộc)
+data/raw/
+
+# môi trường và khoá API
+.venv/
+venv/
+.env
+*.key
+
+# rác Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
