@@ -1,8 +1,10 @@
 """Chạy toàn bộ quy trình bằng MỘT lệnh:
 
-    python run_pipeline.py --config configs/new_york_city.yaml
+    python run_pipeline.py --config configs/new_york_city.yaml --start-from qa --skip-llm
 
-Các bước (theo thứ tự): download, filter, qa, llm, qa_post, kpi, baseline, evaluate, viz
+Mặc định từ qa đến viz, dùng dữ liệu interim đã có.
+Khi có raw: --start-from filter để chạy từ filter đến viz.
+Bước download chỉ chạy khi được chọn rõ bằng --steps download hoặc gọi src.download riêng.
 Tuỳ chọn: --steps a,b,c   --skip-download   --skip-llm (chỉ dùng cache)   --llm-limit N (chạy thử)
 """
 import argparse
@@ -47,13 +49,17 @@ def run_step(name, cfg, args):
 def main():
     ap = argparse.ArgumentParser(description="Quy trình phân tích Inside Airbnb")
     ap.add_argument("--config", required=True, help="vd. configs/new_york_city.yaml")
-    ap.add_argument("--steps", default=",".join(STEPS), help="các bước cần chạy, ngăn cách bằng dấu phẩy")
+    selection = ap.add_mutually_exclusive_group()
+    selection.add_argument("--start-from", choices=["filter", "qa"], default="qa",
+                           help="chạy từ bước này đến viz; mặc định qa dùng data/interim đã có")
+    selection.add_argument("--steps", default=None, help="chỉ chạy các bước được liệt kê, ngăn cách bằng dấu phẩy")
     ap.add_argument("--skip-download", action="store_true", help="bỏ qua bước tải (đã có data/raw)")
     ap.add_argument("--skip-llm", action="store_true", help="không gọi API LLM, chỉ dùng cache")
     ap.add_argument("--llm-limit", type=int, default=None, help="chỉ xử lý N review đầu (chạy thử)")
     args = ap.parse_args()
     cfg = load_config(args.config)
-    steps = [s.strip() for s in args.steps.split(",") if s.strip() and not (args.skip_download and s.strip() == "download")]
+    selected = args.steps.split(",") if args.steps is not None else STEPS[STEPS.index(args.start_from):]
+    steps = [s.strip() for s in selected if s.strip() and not (args.skip_download and s.strip() == "download")]
     unknown = [s for s in steps if s not in STEPS]
     if unknown:
         raise SystemExit(f"Bước không hợp lệ: {unknown}. Hợp lệ: {STEPS}")

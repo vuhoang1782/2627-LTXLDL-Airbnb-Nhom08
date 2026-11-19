@@ -6,7 +6,7 @@ phân tích review bằng LLM (Gemini) và vẽ hình, **chạy bằng một l�
 
 ## 1. Cài đặt
 
-Python phiên bản ghi trong `.python-version`.
+Python **3.13.12**, đúng phiên bản ghi trong `.python-version` đã được kiểm thử.
 
 ```
 python -m venv .venv
@@ -16,34 +16,54 @@ pip install -r requirements.txt
 
 ## 2. Khoá API (chỉ cần cho bước LLM)
 
-Sao chép `.env.example` thành `.env` và điền khoá, hoặc đặt biến môi trường **`GEMINI_API_KEY`**
-(tên biến đổi được ở `llm.api_key_env` trong config). Mã chỉ đọc khoá từ biến môi trường, không ghi khoá vào mã.
-Khoá bất kỳ đều chạy được. Tên model ở `llm.model` trong config, cần là model còn dùng được với khoá đó.
+Các lệnh bên dưới dùng `--skip-llm`: đọc kết quả đã lưu trong cache, không gọi API và không cần `.env` hay khoá API.
+Cache đi kèm đã có kết quả Gemini cho 1.000 review của cấu hình New York City hiện tại.
+
+Nếu cần gọi API cho review chưa có trong cache, bỏ `--skip-llm`, sao chép `.env.example` thành `.env` và điền khoá
+**`GEMINI_API_KEY`** hợp lệ (tên biến đổi được ở `llm.api_key_env` trong config). Tên model ở `llm.model`
+cần dùng được với khoá đó. Không commit `.env`.
 
 ## 3. Chạy
 
+**Không có raw, dùng dữ liệu đã lọc trong `data/interim/`:**
+
 ```
-python run_pipeline.py --config configs/new_york_city.yaml
+python run_pipeline.py --config configs/new_york_city.yaml --start-from qa --skip-llm
 ```
 
-Các bước (theo thứ tự): `download` → `filter` → `qa` → `llm` → `qa_post` → `kpi` → `baseline` → `evaluate` → `viz`.
+Các bước: `qa` → `llm` (cache) → `qa_post` → `kpi` → `baseline` → `evaluate` → `viz`.
+Nếu không truyền `--start-from` hoặc `--steps`, mặc định cũng chạy từ `qa` đến `viz`.
+
+**Đã có raw của đủ các mốc trong `data/raw/`, chạy lại từ bước lọc:**
+
+```
+python run_pipeline.py --config configs/new_york_city.yaml --start-from filter --skip-llm
+```
+
+Các bước: `filter` → `qa` → `llm` (cache) → `qa_post` → `kpi` → `baseline` → `evaluate` → `viz`.
+Cả hai cách đều không chạy `download`. Khi không có raw, bước `evaluate` vẫn chấm nhãn tay nhưng bỏ qua
+việc tính lại ước tính chi phí toàn thành phố; `llm_cost_estimate.csv` đã lưu vẫn được giữ nguyên.
 
 | Tuỳ chọn | Ý nghĩa |
 |---|---|
+| `--start-from qa` | từ QA đến viz, dùng interim đã có; đây là mặc định |
+| `--start-from filter` | từ filter đến viz, cần raw đã có |
 | `--steps qa,kpi` | chỉ chạy các bước liệt kê |
-| `--skip-download` | bỏ bước tải (đã có `data/raw`) |
+| `--skip-download` | bỏ download nếu bước này được chọn trong `--steps`; hai chế độ trên vốn không chạy download |
 | `--skip-llm` | không gọi API, chỉ dùng cache `data/processed/llm_cache.jsonl` |
 | `--llm-limit 20` | chỉ xử lý 20 review đầu (chạy thử rẻ) |
 
+Chọn một trong `--start-from` và `--steps`, không dùng cả hai cùng lúc.
 Bước tải và lọc cũng chạy riêng được: `python -m src.download --config configs/new_york_city.yaml [--download-only | --filter-only]`.
 
 ## 4. Chạy với thành phố hoặc mốc khác
 
 Thành phố và mốc **chỉ nằm trong tệp cấu hình**, không ghi cứng trong mã. Sao chép `configs/new_york_city.yaml`,
-sửa các dòng có `[ĐỔI]` (`city`, `data_root`, `currency`, `snapshots`, `group`, `assignments`, `stakeholder`) rồi chạy:
+sửa các dòng có `[ĐỔI]` (`city`, `data_root`, `currency`, `snapshots`, `group`, `assignments`, `stakeholder`).
+Khi đã có raw phù hợp với cấu hình mới, chạy:
 
 ```
-python run_pipeline.py --config configs/<thanh_pho>.yaml
+python run_pipeline.py --config configs/<thanh_pho>.yaml --start-from filter
 ```
 
 - Không có mục `assignments` thì quy trình lấy mẫu ngẫu nhiên cố định theo `seed` (listing, review, mẫu LLM, nhãn tay).
@@ -85,10 +105,27 @@ run_pipeline.py              một lệnh chạy cả quy trình
 
 ## 8. Nhãn tay
 
-Đặt tệp `data/samples/hand_labels.csv` (cột `review_id` + `sentiment`, `language` và/hoặc tên aspect; ô aspect trống = review không nhắc tới).
-`review_id` phải còn nguyên 19 chữ số (Google Sheets/Excel hay làm tròn số dài). Chưa có tệp thì bước `evaluate` chỉ ước tính chi phí.
+Tệp `data/samples/hand_labels.csv` hiện có 150 review được gán nhãn tay, gồm `review_id`, `sentiment`
+và các cặp cột `<aspect>_positive`, `<aspect>_negative` cho 5 aspect: `cleanliness`, `host_friendliness`,
+`noise`, `amenities`, `location`. Mỗi cột dùng 0/1:
+
+| `_positive` | `_negative` | Ý nghĩa |
+|---|---|---|
+| 0 | 0 | Không có tín hiệu khen hoặc chê về aspect |
+| 1 | 0 | Có khen |
+| 0 | 1 | Có chê |
+| 1 | 1 | Vừa khen vừa chê |
+
+`evaluate` chấm riêng từng cột nhị phân cho Gemini và baseline. Ô trống của cột aspect được hiểu là 0;
+review thiếu kết quả dự đoán được ghi là `missing`, không coi là 0. Với tệp hiện tại, `eval_metrics.csv`
+có 22 dòng: (sentiment + 10 cột aspect) x 2 hệ thống, mỗi dòng chấm trên 150 review.
+`error_analysis.csv` ghi review sai, cột nhãn, nhãn tay, kết quả hai hệ thống và nội dung review.
+Cột `language` là tuỳ chọn; chưa có cột này trong nhãn tay thì chưa chấm ngôn ngữ.
+
+`review_id` phải còn nguyên 19 chữ số (Google Sheets/Excel hay làm tròn số dài). Chưa có tệp nhãn tay
+thì bước `evaluate` bỏ qua chấm điểm, chỉ ước tính chi phí nếu có raw.
 
 ## 9. Tự kiểm tra trước khi nộp
 
-Clone vào thư mục mới, dựng môi trường theo mục 1, đặt khoá theo mục 2, chạy lệnh ở mục 3 và đối chiếu số liệu, hình
-với báo cáo.
+Tải đúng nhánh `codex/pipeline-evaluate-aspects`, dựng môi trường theo mục 1, chọn lệnh ở mục 3 phù hợp
+với dữ liệu đang có rồi đối chiếu số liệu, hình với báo cáo. Chạy bằng cache với `--skip-llm` không cần khoá API.
