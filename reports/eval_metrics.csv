@@ -1,0 +1,8 @@
+label,system,n,accuracy,macro_f1
+sentiment,llm,150,0.8667,0.7797
+sentiment,baseline,150,0.7733,0.722
+cleanliness,llm,150,0.9667,0.8133
+host_friendliness,llm,150,0.9733,0.9348
+noise,llm,150,0.9533,0.6847
+amenities,llm,150,0.66,0.6663
+location,llm,150,0.9267,0.5508
