@@ -1,0 +1,53 @@
+{
+  "run_id": "20261111_105358",
+  "started_at": "2026-11-11T10:53:58",
+  "finished_at": "2026-11-11T10:54:00",
+  "status": {
+    "kpi1": "ok",
+    "kpi2": "ok"
+  },
+  "rule_version": "qa-v1.1",
+  "map_version": "map_v1",
+  "pocket_wifi_policy": "not_counted_as_wifi",
+  "price_source": "listings.price",
+  "kpi1_snapshot": "2026-06-14",
+  "snapshots": [
+    "2025-09-01",
+    "2025-11-01",
+    "2026-03-16",
+    "2026-06-14"
+  ],
+  "qa_config": {
+    "iqr_multiplier": 1.5,
+    "kpi1_snapshot": "2026-06-14",
+    "min_coverage_pct": 80.0,
+    "min_n_display": 10,
+    "small_sample_min": 5,
+    "very_small_sample_max": 4,
+    "min_n_ratio": 30
+  },
+  "sources": [
+    {
+      "snapshot": "2025-09-01",
+      "path": "data\\interim\\new-york-city\\2025-09-01\\listings_filtered.csv.gz",
+      "sha256": "4b09810a8fd5dedcda942de937b3a9bed0274b4e431b61875c9cb6c5b43176c7"
+    },
+    {
+      "snapshot": "2025-11-01",
+      "path": "data\\interim\\new-york-city\\2025-11-01\\listings_filtered.csv.gz",
+      "sha256": "8ae1da87fdaa012f987ac07ad31a30b08e1a40abbb61e67af828036aafc020cc"
+    },
+    {
+      "snapshot": "2026-03-16",
+      "path": "data\\interim\\new-york-city\\2026-03-16\\listings_filtered.csv.gz",
+      "sha256": "0c43326c3341af55b6512a0ea7f6b6c711383ca92c2957c8c772022e77d44707"
+    },
+    {
+      "snapshot": "2026-06-14",
+      "path": "data\\interim\\new-york-city\\2026-06-14\\listings_filtered.csv.gz",
+      "sha256": "9d0dc48b57a91590c139fef993af075788782d419dc14551db745bcac5737098"
+    }
+  ],
+  "python": "3.13.14",
+  "pandas": "3.0.6"
+}

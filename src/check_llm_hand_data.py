@@ -90,6 +90,14 @@ def filter_chunked(path: Path, col: str, keep: set[int]) -> pd.DataFrame:
     # ignore_index=True: đánh số lại chỉ mục từ 0. pd.concat([]) báo lỗi với danh sách rỗng nên có nhánh else.
     return pd.concat(parts, ignore_index=True) if parts else pd.DataFrame()
 
+def filter_chunked_comment(path: Path, col: str, keep: set[int]) -> pd.DataFrame:
+    """Lọc bảng lớn: giữ dòng có cột `col` thuộc `keep`. Dùng chung cho calendar (col=listing_id)
+    và reviews (col=id)."""
+    # chunksize làm read_csv trả về bộ lặp nhả ra từng DataFrame CHUNK dòng. Mỗi mảnh được lọc ngay
+    # rồi bỏ đi, nên bộ nhớ chỉ giữ một mảnh và phần đã lọc (nhỏ) -> không bao giờ tràn RAM.
+    parts = [c[c[col].isin(keep) & c[col].notna() & (c[col] != "")] for c in pd.read_csv(path, chunksize=CHUNK)]
+    # ignore_index=True: đánh số lại chỉ mục từ 0. pd.concat([]) báo lỗi với danh sách rỗng nên có nhánh else.
+    return pd.concat(parts, ignore_index=True) if parts else pd.DataFrame()
 
 def write_gz(df: pd.DataFrame, dest: Path) -> None:
     """Ghi file nén an toàn: ghi vào .part rồi mới đổi tên, giống download.py,
@@ -125,16 +133,16 @@ def run(cfg_path: str) -> int:
         # Mỗi bảng: (file nguồn, file đích). Thứ tự listings -> calendar -> reviews là có chủ đích:
         # số dòng calendar kỳ vọng phụ thuộc số listing tìm được ở cùng mốc.
         tables = {
-            "listings": (raw_dir / "listings.csv.gz", out_dir / "listings.csv.gz"),
-            "calendar": (raw_dir / "calendar.csv.gz", out_dir / "calendar.csv.gz"),
-            "reviews": (raw_dir / "reviews.csv.gz", out_dir / "reviews.csv.gz"),
+            "listings": (raw_dir / "listings.csv.gz", out_dir / "listings_filtered.csv.gz"),
+            "calendar": (raw_dir / "calendar.csv.gz", out_dir / "calendar_filtered.csv.gz"),
+            "reviews": (raw_dir / "reviews.csv.gz", out_dir / "reviews_filtered.csv.gz"),
         }
         n_listings = None                          # số listing thực sự tìm được ở mốc này
 
         for table, (source, dest) in tables.items():
             # Dòng ghi nhận, khai báo đủ trường để dòng nào cũng đủ cột.
             row = {"snapshot": snap, "table": table, "source": str(source), "path": str(dest),
-                   "status": "", "rows": 0, "expected": None, "message": ""}
+                   "status": "", "rows": 0, "expected": None, "availible_llm_id": 0, "availible_handlabel_id": 0,"message": ""}
             try:
                 if table == "listings":
                     sub = filter_listings(source, area)
@@ -147,13 +155,15 @@ def run(cfg_path: str) -> int:
                 else:
                     # Reviews lọc theo review_id (cột `id`), KHÔNG lọc theo listing_id:
                     # lọc theo listing_id sẽ lấy mọi review của listing (hàng chục nghìn) thay vì đúng 5.000.
-                    sub = filter_chunked(source, "id", rid)
+                    sub = filter_chunked_comment(source, "id", rid)
                     row["expected"] = len(rid)                     # 5.000 review
                     if not sub.empty:
                         # Gắn cờ thay vì tách file: các bước sau chỉ cần sub[sub.is_llm] / sub[sub.is_hand].
                         review_ids = pd.to_numeric(sub["id"], errors="coerce").astype("Int64")
                         sub["is_llm"] = review_ids.isin(llm)
                         sub["is_hand"] = review_ids.isin(hand)
+                        row["availible_llm_id"] = (review_ids.isin(llm)).sum()
+                        row["availible_handlabel_id"] = review_ids.isin(hand).sum()
 
                 write_gz(sub, dest)
                 row["status"] = "ok"

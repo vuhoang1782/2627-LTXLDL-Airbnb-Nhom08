@@ -39,12 +39,11 @@ BASE_URL = "https://data.insideairbnb.com"
  
 # Tiêu đề HTTP gửi kèm mỗi yêu cầu. User-Agent là dòng "tự giới thiệu".
 # Nếu không khai báo, requests tự xưng là "python-requests" và có thể bị chặn (lỗi 403).
-HEADERS = {
-    "User-Agent": (
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-        "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
-    )
-}
+HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+            "Accept": "*/*",
+            "Accept-Language": "en-US,en;q=0.9",
+            "Referer": "https://insideairbnb.com/",
+            "Connection": "keep-alive"}
  
 # FILES: dict lồng dict, mô tả MỖI LOẠI file cần tải.
 #   "rel"      : đường dẫn của file bên trong thư mục snapshot trên máy chủ
@@ -57,7 +56,9 @@ FILES = {
     "listings": {
         "rel": "data/listings.csv.gz",
         "required": ["id", "price", "neighbourhood_cleansed", "latitude",
-                     "longitude", "room_type", "minimum_nights", "last_scraped"],
+                     "longitude", "room_type", "minimum_nights", "last_scraped",
+                     "amenities", "price_quote_checkin_date", "price_quote_checkout_date",
+                     "price_quote_price_per_night; price_quote_raw","source", "last_scraped"],
     },
     # calendar: KHÔNG yêu cầu cột price vì calendar mốc 2026 không có cột này
     # (hoặc có nhưng rỗng 100%). Giá lấy từ listings. Nên ghi quyết định này vào báo cáo QA.
@@ -129,7 +130,6 @@ def download_file(url, dest, retries=3, timeout=60) -> None:
                 # Kiểm tra mã trạng thái: nếu thiếu dòng này, trang lỗi 404 sẽ bị ghi thành file như bình thường
                 if r.status_code >= 400:
                     raise DownloadError(r.status_code, url)
-                # SỬA: khối ghi file phải THỤT VÀO BÊN TRONG `with requests.get(...)`.
                 # Bản cũ để nó ra ngoài, lúc đó kết nối đã đóng nên r.iter_content không đọc được.
                 with open(tmp, "wb") as f:                      # "wb" = ghi nhị phân (file .gz không phải văn bản)
                     for chunk in r.iter_content(1 << 20):       # 1 << 20 = 2^20 byte = 1 MiB mỗi mảnh
@@ -145,7 +145,7 @@ def download_file(url, dest, retries=3, timeout=60) -> None:
             tmp.unlink(missing_ok=True)
             # 4xx (403/404) thử lại vô ích; hoặc đã hết lượt -> ném lỗi tiếp lên run().
             # `raise` đứng một mình = ném lại đúng lỗi vừa bắt.
-            if e.status < 500 or attempt == retries:
+            if e.status == 404 or attempt == retries:
                 raise
             time.sleep(2 ** attempt)                            # 5xx còn lượt: chờ 2, 4, ... giây rồi thử lại
  
@@ -165,7 +165,6 @@ def load_config(path: str) -> dict:
         cfg = yaml.safe_load(f)        # safe_load không thực thi code lạ nhúng trong yaml
     # YAML tự nhận 2025-09-01 là kiểu ngày (datetime.date), không phải chuỗi.
     # Ép về str một lần ở đây để mọi nơi sau dùng chuỗi.
-    # SỬA: bản cũ viết `str[s]` (ngoặc vuông). Gọi hàm phải dùng ngoặc tròn: `str(s)`.
     cfg["snapshots"] = [str(s) for s in cfg["snapshots"]]
     return cfg
  
@@ -208,7 +207,6 @@ def validate_file(path: Path, kind: str, snapshot: str) -> None:
         with open(path, encoding="utf-8") as f:
             gj = json.load(f)
         # "features" là danh sách các khu phố; mỗi feature có "properties" (tên khu) và "geometry" (đường viền).
-        # SỬA: bản cũ viết "feature" (thiếu s) nên luôn báo thiếu. Đúng là "features".
         # .get trả None nếu thiếu khóa; cả None lẫn [] đều là "sai" nên `not` bắt được cả hai.
         if not gj.get("features"):
             raise ValueError("GeoJSON không có features")

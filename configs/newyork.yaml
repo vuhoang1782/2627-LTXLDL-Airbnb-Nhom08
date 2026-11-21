@@ -1,27 +1,111 @@
-city: new-york-city
-data_root: united-states/ny/new-york-city   # dựng URL: data.insideairbnb.com/<data_root>/<mốc>/...
+# Cấu hình cho New York City. Mọi thứ phụ thuộc thành phố/mốc nằm ở đây, KHÔNG ghi cứng trong mã.
+city: new_york_city
+base_url: https://data.insideairbnb.com
+data_root: united-states/ny/new-york-city   # URL: <base_url>/<data_root>/<mốc>/data/<bảng>.csv.gz
 currency: USD
-snapshots: [2025-09-01, 2025-01-11, 2026-03-16, 2026-06-14]
-
-qa:
-  price_max_usd: 10000            # ngưỡng ngoại lai giá
-  min_nights_cap: 365
-  dedupe_keys: [id, last_scraped]
-
-kpi:
-  area_col: neighbourhood_cleansed
-
-llm:
-  provider: gemini # model tuỳ chọn
-  sample_size: 1000 #check theo review.scv
-  aspects: [vị trí, sạch sẽ, chủ nhà, giá trị, tiện nghi, độ ồn, an toàn]
-  cache: data/processed/llm_cache.jsonl
-
 seed: 42
+
+# Bốn mốc bắt buộc. Mốc 2 đã đổi từ 2025-12-04 sang 2025-11-01 theo yêu cầu của giảng viên.
+snapshots: [
+    "2026-03-16",
+    "2026-06-14",
+    "2026-07-12",
+    "2026-08-10",
+    "2026-09-14",
+    "2026-10-04",
+    "2026-11-01",
+    "2026-02-13",
+    "2026-01-15",
+    "2026-11-01",
+    "2026-10-04",
+    "2026-09-14",
+    "2026-08-10",
+    "2026-07-12",
+    "2026-03-16"
+]
+
+group:
+  class: "UET.DSE2049 4"
+  number: 8
+  code: DSE2049-C04-G08-new-york-city
+
+paths:
+  raw: data/raw/new_york_city              # dữ liệu thô (gitignore)
+  interim: data/interim      # sau khi lọc theo ID của nhóm (gitignore)
+  processed: data/processed  # dữ liệu sạch, KPI, kết quả LLM
+  samples: data/samples
+  reports: reports
+  figures: figures
+
+subset:
+  listing_ids: data/samples/listing_ids.csv   # tab «Listing» tải từ Google Sheets
+  review_ids: data/samples/review_ids.csv     # tab «Review» tải từ Google Sheets
+  calendar_columns: [listing_id, date, available, price]   # chỉ đọc cột cần; cột thiếu thì bỏ qua
+  chunksize: 500000
+  fallback_listing_sample: 1000   # dùng khi không có tệp ID (lấy mẫu theo seed)
+  fallback_review_sample: 5000
+
 check:
   ma_du_lieu: DSE2049-C04-G08-new-york-city
   listing_file: data/samples/PClistings.csv
   review_file: data/samples/PCreview.csv
+  
+# Số kiểm tra do đề cho. null = chưa có số kỳ vọng (vd. mốc 2 mới) -> chỉ in ra, không đánh SAI.
+expected:
+  listings_rows: 1000
+  calendar_rows: 365000
+  reviews_rows: 5000
+  entire_home: 875
+  private_room: 125
+  zero_reviews: [50, null, 25, 25]
+  missing_price_last: 20
+  mau_llm: 1000
+  nhan_tay: 100
+  area_listings_range: [120, 130]
 
-raw_dir: data/raw
-reports_dir: reports
+qa:
+  price_min_usd: 10          # ngưỡng ngoại lai giá: xem lại sau khi nhìn phân phối giá thật
+  price_max_usd: 5000
+  min_nights_cap: 365
+  nan_col_threshold: 0.9     # cột có >= 90% ô rỗng bị gắn cờ không dùng
+  calendar_days: 365
+  scrape_date_tolerance_days: 7
+  allowed_room_types: [Entire home/apt, Private room, Hotel room, Shared room]
+  imbalance_threshold: 0.8
+  min_area_listings: 5
+  bbox: {lat_min: 40.4, lat_max: 41.0, lon_min: -74.4, lon_max: -73.6}
+  dedupe_keys:
+    listings: [id]
+    calendar: [listing_id, date]
+    reviews: [id]
+
+kpi:
+  area_col: neighbourhood_cleansed
+  min_area_listings: 5
+  min_area_reviews: 10
+  stakeholder: "Cơ quan quản lý nhà ở và lưu trú ngắn hạn của thành phố (nhóm xác nhận/sửa lại)"
+
+llm:
+  provider: gemini                 # gemini | mock (mock chỉ để chạy thử không cần khoá)
+  model: gemini-2.5-flash          # kiểm tra tên model còn dùng được trên Google AI Studio
+  api_key_env: GEMINI_API_KEY      # tên biến môi trường chứa khoá
+  sample_size: 1000                # = số review «Mẫu LLM» của nhóm
+  hand_label_size: 100
+  batch_size: 10                   # số review mỗi lần gọi (tiết kiệm hạn mức gói miễn phí)
+  max_chars_per_review: 1200
+  requests_per_minute: 10          # chỉnh theo hạn mức thật của gói miễn phí
+  max_retries: 4
+  allowed_sentiments: [positive, mixed, negative]
+  cache: data/processed/llm_cache.jsonl
+  hand_labels: data/samples/hand_labels.csv    # cột: review_id,label
+  est_output_tokens_per_review: 60
+  price_per_1m_input_usd: null     # điền theo trang giá chính thức để có ước tính tiền
+  price_per_1m_output_usd: null
+  aspects:                         # khoá -> từ khoá (tiếng Anh) dùng cho baseline
+    location: [location, neighborhood, neighbourhood, subway, metro, walk, close to, central, area]
+    cleanliness: [clean, dirty, spotless, filthy, dust, smell, bugs, cockroach]
+    host: [host, owner, communication, responsive, check-in, check in, checkin, welcoming]
+    value: [price, value, worth, expensive, cheap, overpriced, money]
+    amenities: [kitchen, bed, wifi, shower, bathroom, amenities, towels, air conditioning, heating, tv]
+    noise: [noise, noisy, loud, quiet, street]
+    safety: [safe, unsafe, sketchy, dangerous, security]
