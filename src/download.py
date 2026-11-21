@@ -1,26 +1,21 @@
+"""Tải dữ liệu Inside Airbnb vào data/raw, chỉ những bảng x mốc mà KPI cần (xem utils.tables_snapshots).
+
+Chạy:  python -m src.download --config configs/new_york_city.yaml
+Ra:    data/raw/<mốc>/<bảng>.csv.gz   (việc lọc theo ID của nhóm làm ở qa.py, đọc theo khối)
+"""
 import gzip
 import shutil
 import time
-import urllib.error
 import urllib.request
-from pathlib import Path
 
-import yaml
+from src.utils import cli, ensure_dir, get_logger, raw_file, tables_snapshots
 
-ROOT = Path(__file__).resolve().parents[1]
-BASE_URL = "https://data.insideairbnb.com"
-FILES = ["listings.csv.gz", "calendar.csv.gz", "reviews.csv.gz"]
-TIMEOUT, MAX_RETRIES, BACKOFF = 60, 3, 2.0
+log = get_logger("download")
+TIMEOUT, RETRIES, BACKOFF = 60, 3, 2.0
 
-def load_config(path: str) -> dict:
-    with open(path, encoding="utf-8") as f:
-        cfg = yaml.safe_load(f)
-    # Ép các mốc snapshot về chuỗi (tránh lỗi YAML tự nhận diện là kiểu date)
-    cfg["snapshots"] = [str(s) for s in cfg["snapshots"]]
-    return cfg
 
-def is_valid(path: Path) -> bool:
-    """Kiểm tra file tồn tại và giải nén được toàn bộ (chống file cụt)."""
+def is_valid(path):
+    """Tệp tồn tại, không rỗng và gzip đọc hết được (tệp tải thiếu sẽ lỗi ở đây)."""
     if not path.exists() or path.stat().st_size == 0:
         return False
     try:
@@ -31,92 +26,42 @@ def is_valid(path: Path) -> bool:
     except (OSError, EOFError):
         return False
 
-def download(url: str, dest: Path) -> str | None:
-    """Tải file dùng urllib. Trả về None nếu OK, ngược lại trả về chuỗi lỗi."""
-    dest.parent.mkdir(parents=True, exist_ok=True)
-    part = dest.with_suffix(dest.suffix + ".part")
-    err = None
 
-    for attempt in range(MAX_RETRIES):
-        try:
-            # Thêm User-Agent để tránh bị server chặn (lỗi 403)
-            req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
-            
-            with urllib.request.urlopen(req, timeout=TIMEOUT) as r, open(part, "wb") as f:
-                # copyfileobj đọc từng khối dữ liệu từ mạng và ghi xuống ổ cứng
-                expected = r.headers.get("Content-Length")       # có thể vắng (chunked) -> khi đó chỉ dựa vào gzip
-                shutil.copyfileobj(r, f)
-                f.flush()
-                got = f.tell()
-                if expected is not None and got != int(expected):
-                    raise OSError(f"tải thiếu: {got}/{expected} byte")   # bắt file cụt sớm, trước khi giải nén kiểm tra
-                
-            # Đổi tên file tạm thành file chính thức
-            part.replace(dest)
-            return None
-            
-        except urllib.error.HTTPError as e:
-            err = f"HTTP {e.code}"
-            # Nếu là lỗi 4xx (trừ 429 Too Many Requests) thì thử lại cũng vô ích -> thoát luôn
-            if 400 <= e.code < 500 and e.code != 429:
-                break
-        except (urllib.error.URLError, TimeoutError, OSError) as e:
-            # Bắt các lỗi mất mạng, timeout, hoặc lỗi ghi file (OSError)
-            err = f"Network/IO error: {e}"
-        finally:
-            # Xóa file rác .part nếu tải thất bại
-            part.unlink(missing_ok=True)
-            
-        if attempt < MAX_RETRIES - 1:
-            time.sleep(BACKOFF * 2**attempt)   # chờ 2s, 4s trước khi thử lại; lần cuối không chờ
-        
-    return err
-
-def fetch(url: str, dest: Path) -> bool:
-    """Kết hợp kiểm tra file cũ và tải mới."""
+def fetch(url, dest):
+    """Bỏ qua nếu tệp đã hợp lệ; lỗi gì cũng thử lại tối đa RETRIES lần."""
     if is_valid(dest):
-        print(f"[skip] {dest}")
+        log.info("[skip] %s", dest)
         return True
-        
-    err = download(url, dest)
-    if err:
-        print(f"[fail] {url} -> {err}")
-        return False
-        
-    # Sau khi tải xong, bắt buộc phải kiểm tra lại tính toàn vẹn bằng gzip
-    if not is_valid(dest):
-        print(f"[fail] {url} -> File tải về bị hỏng (gzip integrity check failed)")
-        dest.unlink(missing_ok=True) # Xóa file hỏng đi
-        return False
-        
-    print(f"[ok]   {dest}")
-    return True
+    ensure_dir(dest.parent)
+    part = dest.with_suffix(dest.suffix + ".part")
+    for attempt in range(RETRIES):
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+            with urllib.request.urlopen(req, timeout=TIMEOUT) as r, open(part, "wb") as f:
+                shutil.copyfileobj(r, f)
+            part.replace(dest)
+            if not is_valid(dest):
+                raise ValueError("gzip hỏng")
+            log.info("[ok]   %s", dest)
+            return True
+        except Exception as e:
+            log.warning("[fail] %s (lần %d/%d): %s", url, attempt + 1, RETRIES, e)
+            part.unlink(missing_ok=True)
+            dest.unlink(missing_ok=True)
+            time.sleep(BACKOFF * 2 ** attempt)
+    return False
 
-def download_all(cfg: dict, raw_dir: str) -> dict:
-    ok, failed = [], []
-    for snap in cfg["snapshots"]:
-        for filename in FILES:
-            url = f"{BASE_URL}/{cfg['data_root']}/{snap}/data/{filename}"
-            dest = Path(raw_dir) / cfg["city"] / snap / filename      # khớp qa.py: raw/<city>/<mốc>/
-            
-            if fetch(url, dest):
-                ok.append(str(dest))
-            else:
-                failed.append(str(dest))
-                
-    return {"ok": ok, "failed": failed}
+
+def main(cfg):
+    base = cfg.get("base_url", "https://data.insideairbnb.com").rstrip("/")
+    root = cfg["data_root"].strip("/")
+    tables = ("listings", "calendar", "reviews")
+    failed = [f"{base}/{root}/{snap}/data/{table}.csv.gz"
+              for snap in cfg["snapshots"] for table in tables
+              if not fetch(f"{base}/{root}/{snap}/data/{table}.csv.gz", raw_file(snap, table))]
+    if failed:
+        raise SystemExit("Tải thất bại:\n" + "\n".join(failed))
+
 
 if __name__ == "__main__":
-    import argparse
-
-    p = argparse.ArgumentParser()
-    p.add_argument("--config", required=True)
-    p.add_argument("--raw-dir", default="data/raw")
-    args = p.parse_args()
-
-    cfg = load_config(args.config)
-    res = download_all(cfg, args.raw_dir)
-    
-    print(f"\nXong: {len(res['ok'])} OK, {len(res['failed'])} lỗi")
-    # Trả về mã lỗi 1 nếu có file tải thất bại (để CI/CD hoặc shell script biết)
-    raise SystemExit(1 if res["failed"] else 0)
+    cli(main)
