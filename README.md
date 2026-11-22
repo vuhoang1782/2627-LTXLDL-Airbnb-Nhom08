@@ -16,7 +16,7 @@ Project thực hiện tải và lọc dữ liệu theo phân công, kiểm tra c
 
 | Họ tên | MSSV | GitHub username | Công việc phụ trách |
 |---|---|---|---|
-| *Nguyễn Quốc Cường* | *25022799* | *cuongnq152-cmd* | * Thực hiện phần llm.py, download.py, baseline.py và nhãn tay, hỗ trợ code và tối ưu* |
+| *Nguyễn Quốc Cường* | *25022799* | *cuongnq152-cmd* |  *Thực hiện phần llm.py, download.py, baseline.py và nhãn tay, hỗ trợ code và tối ưu* |
 | *(Thành viên 2)* | *(MSSV)* | *(username)* | *(Nhóm điền phân công thực tế)* |
 | *(Thành viên 3)* | *(MSSV)* | *(username)* | *(Nhóm điền phân công thực tế)* |
 | *(Thành viên 4)* | *(MSSV)* | *(username)* | *(Nhóm điền phân công thực tế)* |
