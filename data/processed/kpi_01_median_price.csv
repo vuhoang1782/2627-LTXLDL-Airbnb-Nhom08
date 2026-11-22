@@ -1,0 +1,11 @@
+snapshot,borough,room_type,n_total,n_valid,median_price,coverage_pct,currency
+2025-09-01,Bronx,Entire home/apt,28,26,114.0,92.85714285714286,USD
+2025-09-01,Bronx,Private room,6,6,91.5,100.0,USD
+2025-09-01,Brooklyn,Entire home/apt,289,261,175.0,90.3114186851211,USD
+2025-09-01,Brooklyn,Private room,55,50,110.0,90.9090909090909,USD
+2025-09-01,Manhattan,Entire home/apt,438,403,200.0,92.00913242009132,USD
+2025-09-01,Manhattan,Private room,40,31,132.0,77.5,USD
+2025-09-01,Queens,Entire home/apt,110,100,141.0,90.9090909090909,USD
+2025-09-01,Queens,Private room,23,20,90.5,86.95652173913044,USD
+2025-09-01,Staten Island,Entire home/apt,10,10,91.5,100.0,USD
+2025-09-01,Staten Island,Private room,1,1,121.0,100.0,USD
