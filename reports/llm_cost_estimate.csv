@@ -1,0 +1,2 @@
+total_reviews_city,sample_size,avg_chars_per_review,est_input_tokens,est_output_tokens,est_cost_usd,note
+990170,1000,270.6,106580166,59410200,180.49954980074997,ước lượng; điền giá từ trang giá chính thức vào config (price_per_1m_*)
