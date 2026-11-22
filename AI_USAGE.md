@@ -1,6 +1,6 @@
 # AI_USAGE.md
 
-## Công cụ đã dùng (vào việc gì)
+## Công cụ đã dùng
 
 - **ChatGPT:** hỗ trợ lên ý tưởng, phản biện và hoàn thiện 10 quy tắc QA, 7 KPI do nhóm đề xuất; hỗ trợ thống nhất công thức, điều kiện tính, cách xử lý dữ liệu thiếu, soạn prompt, giải thích code, chọn thêm 50 nhãn tay và kiểm tra nhãn tay sau khi gán.
 - **Claude:** hỗ trợ xây dựng cấu trúc project, triển khai mã nguồn theo quy tắc QA và KPI đã thống nhất, tích hợp các bước xử lý dữ liệu, LLM, baseline.
@@ -9,7 +9,7 @@
 
 Nhóm thảo luận và quyết định phương án cuối cùng, tự gán nhãn tay theo quy ước chung và chịu trách nhiệm kiểm tra mã nguồn, số liệu và kết quả của project.
 
-## Prompt then chốt (5–10): bước nào, vào tệp nào
+## Prompt then chốt
 
 *Các prompt dưới đây được tóm tắt từ nội dung yêu cầu đã sử dụng trong quá trình thực hiện project, không phải bản chép nguyên văn toàn bộ lịch sử trao đổi.*
 
@@ -26,7 +26,7 @@ Nhóm thảo luận và quyết định phương án cuối cùng, tự gán nh�
 | 9. Hoàn thiện đánh giá — Codex | Chấm sentiment và đủ 10 cột khía cạnh `_positive`/`_negative` cho cả Gemini và baseline; đối chiếu với nhãn tay độc lập. | `src/evaluate.py`, `reports/eval_metrics.csv`, `reports/error_analysis.csv` |
 | 10. Hoàn thiện trực quan hóa — Codex | Tách KPI 2 thành hai ô cho `Entire home/apt` và `Private room`, dùng thang trục Y riêng; cải thiện biểu đồ KPI 4, bản đồ và các hình khác; điều chỉnh bố cục, màu sắc, tiêu đề và chú thích, giữ nguyên số liệu KPI. | `src/viz.py`, `figures/` |
 
-## AI sai ở đâu (ví dụ thật)
+## AI sai ở đâu
 
 1. **Biểu đồ ban đầu khó đọc:** Claude gộp hai KPI trong một ảnh, một số tiêu đề và chú thích chưa rõ. Nhóm kiểm tra ảnh đầu ra và yêu cầu Codex bố trí lại biểu đồ, bổ sung chú giải, tách KPI 2 theo hai loại phòng và xử lý nhãn chồng nhau trong `src/viz.py`.
 2. **Code đánh giá bỏ sót các khía cạnh:** bản `evaluate.py` ban đầu tìm các cột như `cleanliness`, trong khi nhãn tay sử dụng `cleanliness_positive` và `cleanliness_negative`. Pipeline vẫn chạy nhưng chỉ chấm sentiment. Nhóm đối chiếu tên cột và yêu cầu sửa logic đánh giá. Báo cáo sau khi sửa có 22 dòng kết quả (11 nhãn × 2 hệ thống).
