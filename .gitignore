@@ -1,0 +1,19 @@
+# bỏ qua dữ liệu thô, chỉ giữ GeoJSON để vẽ bản đồ
+/data/raw/**
+!/data/raw/**/
+!/data/raw/**/neighbourhoods.geojson
+
+# môi trường và khoá API
+.venv/
+venv/
+.env
+*.key
+
+# rác Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# kiểm thử: không commit
+/tests/
+/test/
