@@ -1,7 +1,3 @@
-Dưới đây là tệp `AI_USAGE.md` được biên tập lại để khớp **100% với bản phân công chính thức** bạn vừa gửi, đồng thời bổ sung chính xác các chi tiết kỹ thuật và con số thực tế từ bộ mã nguồn Bản 2 (`baseline_2.py`, `download_2.py`, `evaluate_2.py`, `kpi_2.py`, `llm_2.py`, `qa_2.py`, `viz_2.py`, `utils_2.py`) mà không làm thay đổi cấu trúc công cụ hay nội dung đã chốt của nhóm:
-
----
-
 # AI_USAGE.md
 
 ## Công cụ đã dùng (vào việc gì)
