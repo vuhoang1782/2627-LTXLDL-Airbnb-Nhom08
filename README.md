@@ -191,8 +191,3 @@ git rev-parse final          # Ghi mã commit SHA này vào báo cáo nộp bài
 
 Dữ liệu nguồn: [Inside Airbnb](https://insideairbnb.com), giấy phép CC BY 4.0.
 
-```
-
-*(Lưu ý: Bạn nhớ điền bổ sung thông tin họ tên, MSSV, GitHub username và công việc phụ trách của các thành viên nhóm 08 vào bảng ở **Mục 1** trước khi commit nhé).*
-
-```
