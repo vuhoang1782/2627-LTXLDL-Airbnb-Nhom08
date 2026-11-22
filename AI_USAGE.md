@@ -1,4 +1,4 @@
-# AI_USAGE.md — Bản nháp v2
+# AI_USAGE.md
 
 ## Công cụ đã dùng (vào việc gì)
 
