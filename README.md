@@ -14,14 +14,6 @@ Project thực hiện tải và lọc dữ liệu theo phân công, kiểm tra c
 - **Thành phố được phân công:** New York City (tiền tệ USD)
 - **Bốn mốc dữ liệu:** `2025-09-01`, `2025-11-01`, `2026-03-16`, `2026-06-14`
 
-| Họ tên | MSSV | GitHub username | Công việc phụ trách |
-|---|---|---|---|
-| *Nguyễn Quốc Cường* | *25022799* | *cuongnq152-cmd* |  *Thực hiện phần llm.py, download.py, baseline.py và nhãn tay, hỗ trợ code và tối ưu* |
-| *(Thành viên 2)* | *(MSSV)* | *(username)* | *(Nhóm điền phân công thực tế)* |
-| *(Thành viên 3)* | *(MSSV)* | *(username)* | *(Nhóm điền phân công thực tế)* |
-| *(Thành viên 4)* | *(MSSV)* | *(username)* | *(Nhóm điền phân công thực tế)* |
-| *(Thành viên 5)* | *(MSSV)* | *(username)* | *(Nhóm điền phân công thực tế)* |
-
 > **Lưu ý vấn đáp:** Mỗi thành viên cần nắm rõ và giải thích được toàn bộ quy trình xử lý dữ liệu, quy tắc QA, công thức KPI và kết quả đánh giá của nhóm.
 
 ---
