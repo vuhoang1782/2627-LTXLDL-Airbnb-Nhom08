@@ -1,0 +1,116 @@
+﻿# Cấu hình cho MỘT thành phố. Chạy thành phố khác: sao chép tệp này và sửa các dòng có [ĐỔI].
+city: new_york_city                           # [ĐỔI]
+base_url: https://data.insideairbnb.com
+data_root: united-states/ny/new-york-city      # [ĐỔI] URL: <base_url>/<data_root>/<mốc>/data/<bảng>.csv.gz
+currency: USD                                  # [ĐỔI] tiền tệ ghi trong «Phân công»
+seed: 42
+snapshots: ["2025-09-01", "2025-11-01", "2026-03-16", "2026-06-14"]   # [ĐỔI] đúng 4 mốc, từ cũ đến mới
+
+group: {class: "UET.DSE2049 4", number: 8}     # [ĐỔI] chỉ dùng khi tệp phân công là của cả lớp (có cột «Lớp», «Nhóm»)
+
+# Tệp phân công riêng của nhóm (đường dẫn tính từ thư mục chứa tệp YAML này).
+# Xoá cả mục này nếu muốn chạy không có phân công: quy trình sẽ lấy mẫu ngẫu nhiên theo seed.
+assignments:                                   # [ĐỔI]
+  listing_ids: ../data/samples/listing_ids.csv   # cột listing_id (hoặc id)
+  review_ids: ../data/samples/review_ids.csv     # cột review_id, listing_id, «Mẫu LLM», «Nhãn tay» (ô có chữ x)
+  llm_flag_column: "Mẫu LLM"
+  hand_flag_column: "Nhãn tay"
+calendar_columns: [listing_id, date, available, minimum_nights, maximum_nights]
+fallback_sample: {listings: 1000, reviews: 5000}     # chỉ dùng khi không có assignments
+
+paths: {raw: data/raw, interim: data/interim, processed: data/processed, reports: reports, figures: figures}
+
+qa:
+  allowed_room_types: [Entire home/apt, Private room, Shared room, Hotel room]
+  # Tiện nghi lấy từ listings.amenities; tên được bỏ khoảng trắng và không phân biệt hoa/thường.
+  # exact: khớp nguyên tên. patterns: regex khớp TOÀN BỘ tên, không tìm chuỗi con.
+  # Trong một tiêu chí: khớp bất kỳ exact/pattern nào là có tiện nghi đó.
+  # Thêm tiêu chí mới: thêm khóa + label + exact/patterns ở đây, rồi chọn khóa đó trong KPI 2.
+  amenity_rules:
+    wifi:
+      label: Wi-Fi
+      # Giữ quy tắc cũ: nhận Wifi/Wi-Fi/Fast wifi và tốc độ; không tính Pocket wifi.
+      patterns: ['^(fast )?wi-?fi( [-–] \d+(\.\d+)? ?mbps)?$']
+    kitchen:
+      label: Kitchen
+      exact: [Kitchen]                    # không tính Kitchenette hoặc Outdoor kitchen
+    washer:
+      label: Máy giặt
+      exact: [Washer, Free washer, Paid washer]
+      patterns: ['(?:free |paid )?washer\s*[-–]+\s*in (?:unit|building)']
+    dryer:
+      label: Máy sấy quần áo
+      exact: [Dryer, Free dryer, Paid dryer]
+      patterns: ['(?:free |paid )?dryer\s*[-–]+\s*in (?:unit|building)']
+    air_conditioning:
+      label: Điều hòa
+      exact: [Air conditioning, Central air conditioning, Portable air conditioning, Window AC unit]
+      patterns: ['.*\bsplit ac units?\b.*']
+    heating:
+      label: Sưởi
+      exact: [Heating, Central heating, Radiant heating, Heating - split type ductless system]
+    workspace:
+      label: Góc làm việc
+      exact: [Dedicated workspace]
+    tv:
+      label: TV
+      patterns: ['(?:\d+(?:\.\d+)?\s*(?:inch|")\s+)?(?:tv|hdtv)(?: with .+)?']
+
+kpi:
+  # KPI 2: listing phải khai báo ĐỦ các tiện nghi được chọn (AND).
+  # wifi             : Wi-Fi
+  # kitchen          : Bếp
+  # washer           : Máy giặt
+  # dryer            : Máy sấy quần áo
+  # air_conditioning : Điều hòa
+  # heating          : Sưởi
+  # workspace        : Khu vực làm việc
+  # tv               : Ti vi
+  # Danh sách phải có ít nhất một khóa, không trùng, đã định nghĩa trong qa.amenity_rules.
+  kpi2_required_amenities: [wifi, kitchen]     # [ĐỔI] thêm/bớt/thay các khóa tại đây
+  # Ví dụ thêm máy giặt: [wifi, kitchen, washer]
+  # Ví dụ thay cả bộ: [air_conditioning, heating, workspace]
+  kpi1_snapshot_index: 0          # KPI 1 dùng snapshots[0]
+  kpi3_snapshot_index: 2          # KPI 3 dùng snapshots[2]
+  llm_snapshot_index: -1          # KPI 6, 7 và LLM dùng snapshots[-1]
+  window_days: 90                 # KPI 3: cửa sổ 90 đêm từ snapshot+1
+  stay_nights: 3                  # KPI 3: số đêm liên tiếp
+  min_price_count: 10             # KPI 4: số giá hợp lệ tối thiểu để so sánh hai mốc
+  llm_room_types: [Entire home/apt, Private room]    # KPI 6, 7
+  stakeholder: "Công ty du lịch (lữ hành) tư vấn lưu trú ngắn hạn tại New York City"   # [ĐỔI]
+baseline:
+  thr: 0.05
+  mixed_min: 0.25
+  default: positive
+llm:
+  provider: gemini
+  model: gemini-3.5-flash-lite    # kiểm tra tên model còn dùng được trên Google AI Studio
+  api_key_env: GEMINI_API_KEY     # tên biến môi trường chứa khoá (đặt trong .env, KHÔNG commit)
+  sample_size: 1000               # số review «Mẫu LLM» được giao
+  hand_label_size: 100            # số review «Nhãn tay» (tập con của mẫu LLM)
+  batch_size: 10                  # số review mỗi lần gọi API
+  max_chars_per_review: 1200
+  requests_per_minute: 10         # chỉnh theo hạn mức thật của gói miễn phí
+  max_retries: 4
+  allowed_sentiments: [positive, negative, mixed]
+  cache: data/processed/llm_cache.jsonl
+  hand_labels: data/samples/hand_labels.csv     # cột review_id + sentiment, language, cleanliness, host_friendliness...
+  est_output_tokens_per_review: 60
+  price_per_1m_input_usd: 0.30    # điền theo trang giá chính thức để có ước tính tiền
+  price_per_1m_output_usd: 2.50
+  aspects:                        # 5 aspect đã chốt: mô tả (cho LLM) + từ khoá (cho baseline)
+    cleanliness:
+      description: "cleanliness and hygiene of the place, room and items (dirty, spotless, smell, bugs)"
+      keywords: [clean, dirty, spotless, filthy, dust, smell, bugs, cockroach, hygiene]
+    host_friendliness:
+      description: "attitude, friendliness and helpfulness of the host"
+      keywords: [host, owner, welcoming, friendly host, helpful, responsive, communication]
+    noise:
+      description: "noise, quietness and how sound affects the stay"
+      keywords: [noise, noisy, loud, quiet]
+    amenities:
+      description: "a SPECIFIC facility or equipment (bed, kitchen, shower, hot water, wifi, TV, AC, heating, washer, elevator) with a good or bad comment"
+      keywords: [kitchen, bed, wifi, shower, hot water, towels, air conditioning, heating, tv, washer, elevator, fridge]
+    location:
+      description: "geographic location, convenience of getting around and access to places of interest"
+      keywords: [location, neighborhood, neighbourhood, subway, metro, close to, central, walk]
