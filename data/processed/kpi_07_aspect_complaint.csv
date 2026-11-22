@@ -1,0 +1,11 @@
+room_type,aspect,total_reviews_in_group,reviews_evaluating_aspect,reviews_negative_on_aspect,negative_pct_among_aspect_reviews
+Entire home/apt,cleanliness,842,323,16,4.953560371517028
+Entire home/apt,host_friendliness,842,522,6,1.1494252873563218
+Entire home/apt,noise,842,151,36,23.841059602649008
+Entire home/apt,amenities,842,260,61,23.46153846153846
+Entire home/apt,location,842,602,8,1.3289036544850499
+Private room,cleanliness,158,74,3,4.054054054054054
+Private room,host_friendliness,158,113,1,0.8849557522123894
+Private room,noise,158,21,5,23.809523809523807
+Private room,amenities,158,41,9,21.951219512195124
+Private room,location,158,106,2,1.8867924528301887

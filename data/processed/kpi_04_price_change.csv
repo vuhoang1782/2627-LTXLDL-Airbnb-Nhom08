@@ -1,0 +1,537 @@
+borough,neighbourhood,snapshot,n_valid,median_price,delta_prev,change_prev_pct,change_base_pct,currency
+Bronx,Baychester,2025-09-01,1,90.0,,,,USD
+Bronx,Bronxdale,2025-09-01,1,159.0,,,,USD
+Bronx,Castle Hill,2025-09-01,1,120.0,,,,USD
+Bronx,City Island,2025-09-01,1,139.0,,,,USD
+Bronx,Clason Point,2025-09-01,1,72.0,,,,USD
+Bronx,Co-op City,2025-09-01,1,82.0,,,,USD
+Bronx,Concourse,2025-09-01,3,104.0,,,,USD
+Bronx,Concourse Village,2025-09-01,2,130.0,,,,USD
+Bronx,Kingsbridge,2025-09-01,1,82.0,,,,USD
+Bronx,Melrose,2025-09-01,1,87.0,,,,USD
+Bronx,Morris Heights,2025-09-01,1,202.0,,,,USD
+Bronx,Morris Park,2025-09-01,2,116.0,,,,USD
+Bronx,Morrisania,2025-09-01,1,125.0,,,,USD
+Bronx,Mott Haven,2025-09-01,4,107.0,,,,USD
+Bronx,Norwood,2025-09-01,2,87.0,,,,USD
+Bronx,Olinville,2025-09-01,1,161.0,,,,USD
+Bronx,Port Morris,2025-09-01,0,,,,,USD
+Bronx,Schuylerville,2025-09-01,1,300.0,,,,USD
+Bronx,Unionport,2025-09-01,1,86.0,,,,USD
+Bronx,Van Nest,2025-09-01,1,165.0,,,,USD
+Bronx,Wakefield,2025-09-01,3,135.0,,,,USD
+Bronx,Williamsbridge,2025-09-01,2,92.5,,,,USD
+Brooklyn,Bay Ridge,2025-09-01,3,70.0,,,,USD
+Brooklyn,Bedford-Stuyvesant,2025-09-01,52,156.5,,,,USD
+Brooklyn,Bensonhurst,2025-09-01,3,198.0,,,,USD
+Brooklyn,Bergen Beach,2025-09-01,1,204.0,,,,USD
+Brooklyn,Boerum Hill,2025-09-01,4,192.5,,,,USD
+Brooklyn,Borough Park,2025-09-01,1,58.0,,,,USD
+Brooklyn,Brighton Beach,2025-09-01,1,99.0,,,,USD
+Brooklyn,Brooklyn Heights,2025-09-01,3,521.0,,,,USD
+Brooklyn,Brownsville,2025-09-01,5,161.0,,,,USD
+Brooklyn,Bushwick,2025-09-01,27,136.0,,,,USD
+Brooklyn,Canarsie,2025-09-01,11,142.0,,,,USD
+Brooklyn,Carroll Gardens,2025-09-01,5,250.0,,,,USD
+Brooklyn,Clinton Hill,2025-09-01,6,275.0,,,,USD
+Brooklyn,Crown Heights,2025-09-01,35,164.0,,,,USD
+Brooklyn,Cypress Hills,2025-09-01,5,95.0,,,,USD
+Brooklyn,Downtown Brooklyn,2025-09-01,1,225.0,,,,USD
+Brooklyn,East Flatbush,2025-09-01,19,137.0,,,,USD
+Brooklyn,East New York,2025-09-01,12,114.0,,,,USD
+Brooklyn,Flatbush,2025-09-01,12,130.5,,,,USD
+Brooklyn,Flatlands,2025-09-01,4,176.5,,,,USD
+Brooklyn,Fort Greene,2025-09-01,6,190.5,,,,USD
+Brooklyn,Fort Hamilton,2025-09-01,8,141.0,,,,USD
+Brooklyn,Gowanus,2025-09-01,2,409.0,,,,USD
+Brooklyn,Gravesend,2025-09-01,1,159.0,,,,USD
+Brooklyn,Greenpoint,2025-09-01,7,300.0,,,,USD
+Brooklyn,Manhattan Beach,2025-09-01,1,111.0,,,,USD
+Brooklyn,Midwood,2025-09-01,1,150.0,,,,USD
+Brooklyn,Park Slope,2025-09-01,14,235.5,,,,USD
+Brooklyn,Prospect Heights,2025-09-01,4,260.0,,,,USD
+Brooklyn,Prospect-Lefferts Gardens,2025-09-01,5,155.0,,,,USD
+Brooklyn,Red Hook,2025-09-01,1,172.0,,,,USD
+Brooklyn,Sea Gate,2025-09-01,1,375.0,,,,USD
+Brooklyn,South Slope,2025-09-01,6,142.0,,,,USD
+Brooklyn,Sunset Park,2025-09-01,3,80.0,,,,USD
+Brooklyn,Vinegar Hill,2025-09-01,1,191.0,,,,USD
+Brooklyn,Williamsburg,2025-09-01,35,200.0,,,,USD
+Brooklyn,Windsor Terrace,2025-09-01,5,255.0,,,,USD
+Manhattan,Battery Park City,2025-09-01,2,162.5,,,,USD
+Manhattan,Chelsea,2025-09-01,21,234.0,,,,USD
+Manhattan,Chinatown,2025-09-01,1,243.0,,,,USD
+Manhattan,East Harlem,2025-09-01,21,150.0,,,,USD
+Manhattan,East Village,2025-09-01,26,159.0,,,,USD
+Manhattan,Financial District,2025-09-01,17,245.0,,,,USD
+Manhattan,Flatiron District,2025-09-01,2,191.0,,,,USD
+Manhattan,Gramercy,2025-09-01,11,167.0,,,,USD
+Manhattan,Greenwich Village,2025-09-01,5,150.0,,,,USD
+Manhattan,Harlem,2025-09-01,36,149.5,,,,USD
+Manhattan,Hell's Kitchen,2025-09-01,46,189.5,,,,USD
+Manhattan,Inwood,2025-09-01,3,100.0,,,,USD
+Manhattan,Kips Bay,2025-09-01,12,244.0,,,,USD
+Manhattan,Little Italy,2025-09-01,7,160.0,,,,USD
+Manhattan,Lower East Side,2025-09-01,14,224.5,,,,USD
+Manhattan,Marble Hill,2025-09-01,0,,,,,USD
+Manhattan,Midtown,2025-09-01,56,358.5,,,,USD
+Manhattan,Morningside Heights,2025-09-01,3,149.0,,,,USD
+Manhattan,Murray Hill,2025-09-01,17,160.0,,,,USD
+Manhattan,NoHo,2025-09-01,1,823.0,,,,USD
+Manhattan,Nolita,2025-09-01,4,218.5,,,,USD
+Manhattan,SoHo,2025-09-01,2,153.5,,,,USD
+Manhattan,Theater District,2025-09-01,4,561.5,,,,USD
+Manhattan,Tribeca,2025-09-01,1,333.0,,,,USD
+Manhattan,Two Bridges,2025-09-01,1,270.0,,,,USD
+Manhattan,Upper East Side,2025-09-01,65,176.0,,,,USD
+Manhattan,Upper West Side,2025-09-01,33,181.0,,,,USD
+Manhattan,Washington Heights,2025-09-01,11,100.0,,,,USD
+Manhattan,West Village,2025-09-01,12,354.5,,,,USD
+Queens,Arverne,2025-09-01,3,444.0,,,,USD
+Queens,Astoria,2025-09-01,9,165.0,,,,USD
+Queens,Bayside,2025-09-01,4,106.0,,,,USD
+Queens,Bayswater,2025-09-01,1,68.0,,,,USD
+Queens,Bellerose,2025-09-01,2,122.0,,,,USD
+Queens,Breezy Point,2025-09-01,1,135.0,,,,USD
+Queens,Briarwood,2025-09-01,2,170.0,,,,USD
+Queens,Cambria Heights,2025-09-01,4,71.5,,,,USD
+Queens,College Point,2025-09-01,1,160.0,,,,USD
+Queens,Corona,2025-09-01,2,93.0,,,,USD
+Queens,Ditmars Steinway,2025-09-01,3,145.0,,,,USD
+Queens,East Elmhurst,2025-09-01,6,149.5,,,,USD
+Queens,Edgemere,2025-09-01,1,134.0,,,,USD
+Queens,Elmhurst,2025-09-01,4,111.0,,,,USD
+Queens,Far Rockaway,2025-09-01,1,448.0,,,,USD
+Queens,Flushing,2025-09-01,8,111.0,,,,USD
+Queens,Forest Hills,2025-09-01,6,140.5,,,,USD
+Queens,Fresh Meadows,2025-09-01,2,102.0,,,,USD
+Queens,Glendale,2025-09-01,1,101.0,,,,USD
+Queens,Jackson Heights,2025-09-01,2,220.0,,,,USD
+Queens,Jamaica,2025-09-01,6,130.5,,,,USD
+Queens,Laurelton,2025-09-01,2,161.5,,,,USD
+Queens,Long Island City,2025-09-01,4,123.0,,,,USD
+Queens,Maspeth,2025-09-01,1,179.0,,,,USD
+Queens,Middle Village,2025-09-01,1,265.0,,,,USD
+Queens,Ozone Park,2025-09-01,2,164.5,,,,USD
+Queens,Queens Village,2025-09-01,5,150.0,,,,USD
+Queens,Rego Park,2025-09-01,3,122.0,,,,USD
+Queens,Richmond Hill,2025-09-01,6,227.0,,,,USD
+Queens,Ridgewood,2025-09-01,6,202.0,,,,USD
+Queens,Rockaway Beach,2025-09-01,1,73.0,,,,USD
+Queens,Rosedale,2025-09-01,5,140.0,,,,USD
+Queens,Springfield Gardens,2025-09-01,3,163.0,,,,USD
+Queens,St. Albans,2025-09-01,2,128.5,,,,USD
+Queens,Sunnyside,2025-09-01,3,105.0,,,,USD
+Queens,Whitestone,2025-09-01,1,150.0,,,,USD
+Queens,Woodhaven,2025-09-01,3,99.0,,,,USD
+Queens,Woodside,2025-09-01,3,95.0,,,,USD
+Staten Island,Arrochar,2025-09-01,1,91.0,,,,USD
+Staten Island,Graniteville,2025-09-01,1,121.0,,,,USD
+Staten Island,Mariners Harbor,2025-09-01,1,65.0,,,,USD
+Staten Island,Port Richmond,2025-09-01,1,88.0,,,,USD
+Staten Island,Shore Acres,2025-09-01,2,97.0,,,,USD
+Staten Island,Tompkinsville,2025-09-01,2,161.0,,,,USD
+Staten Island,Tottenville,2025-09-01,1,92.0,,,,USD
+Staten Island,West Brighton,2025-09-01,2,90.0,,,,USD
+Bronx,Baychester,2025-11-01,1,87.0,,,,USD
+Bronx,Bronxdale,2025-11-01,1,159.0,,,,USD
+Bronx,Castle Hill,2025-11-01,1,107.0,,,,USD
+Bronx,City Island,2025-11-01,1,100.0,,,,USD
+Bronx,Clason Point,2025-11-01,1,89.0,,,,USD
+Bronx,Co-op City,2025-11-01,0,,,,,USD
+Bronx,Concourse,2025-11-01,3,116.0,,,,USD
+Bronx,Concourse Village,2025-11-01,2,111.5,,,,USD
+Bronx,Kingsbridge,2025-11-01,1,86.0,,,,USD
+Bronx,Melrose,2025-11-01,1,87.0,,,,USD
+Bronx,Morris Heights,2025-11-01,1,224.0,,,,USD
+Bronx,Morris Park,2025-11-01,2,105.5,,,,USD
+Bronx,Morrisania,2025-11-01,1,125.0,,,,USD
+Bronx,Mott Haven,2025-11-01,4,132.0,,,,USD
+Bronx,Norwood,2025-11-01,2,90.0,,,,USD
+Bronx,Olinville,2025-11-01,1,161.0,,,,USD
+Bronx,Port Morris,2025-11-01,0,,,,,USD
+Bronx,Schuylerville,2025-11-01,1,300.0,,,,USD
+Bronx,Unionport,2025-11-01,1,86.0,,,,USD
+Bronx,Van Nest,2025-11-01,1,166.0,,,,USD
+Bronx,Wakefield,2025-11-01,3,139.0,,,,USD
+Bronx,Williamsbridge,2025-11-01,2,93.0,,,,USD
+Brooklyn,Bay Ridge,2025-11-01,2,177.5,,,,USD
+Brooklyn,Bedford-Stuyvesant,2025-11-01,51,165.0,8.5,5.4313099041533475,5.4313099041533475,USD
+Brooklyn,Bensonhurst,2025-11-01,3,225.0,,,,USD
+Brooklyn,Bergen Beach,2025-11-01,1,225.0,,,,USD
+Brooklyn,Boerum Hill,2025-11-01,6,221.0,,,,USD
+Brooklyn,Borough Park,2025-11-01,1,58.0,,,,USD
+Brooklyn,Brighton Beach,2025-11-01,1,79.0,,,,USD
+Brooklyn,Brooklyn Heights,2025-11-01,3,428.0,,,,USD
+Brooklyn,Brownsville,2025-11-01,5,207.0,,,,USD
+Brooklyn,Bushwick,2025-11-01,26,162.0,26.0,19.11764705882353,19.11764705882353,USD
+Brooklyn,Canarsie,2025-11-01,10,146.5,4.5,3.169014084507049,3.169014084507049,USD
+Brooklyn,Carroll Gardens,2025-11-01,4,193.5,,,,USD
+Brooklyn,Clinton Hill,2025-11-01,7,250.0,,,,USD
+Brooklyn,Crown Heights,2025-11-01,34,164.0,0.0,0.0,0.0,USD
+Brooklyn,Cypress Hills,2025-11-01,5,108.0,,,,USD
+Brooklyn,Downtown Brooklyn,2025-11-01,1,270.0,,,,USD
+Brooklyn,East Flatbush,2025-11-01,18,143.5,6.5,4.744525547445266,4.744525547445266,USD
+Brooklyn,East New York,2025-11-01,12,123.0,9.0,7.8947368421052655,7.8947368421052655,USD
+Brooklyn,Flatbush,2025-11-01,13,125.0,-5.5,-4.214559386973182,-4.214559386973182,USD
+Brooklyn,Flatlands,2025-11-01,4,177.0,,,,USD
+Brooklyn,Fort Greene,2025-11-01,6,213.5,,,,USD
+Brooklyn,Fort Hamilton,2025-11-01,8,164.0,,,,USD
+Brooklyn,Gowanus,2025-11-01,2,389.0,,,,USD
+Brooklyn,Gravesend,2025-11-01,2,147.5,,,,USD
+Brooklyn,Greenpoint,2025-11-01,7,308.0,,,,USD
+Brooklyn,Manhattan Beach,2025-11-01,1,111.0,,,,USD
+Brooklyn,Midwood,2025-11-01,1,150.0,,,,USD
+Brooklyn,Park Slope,2025-11-01,13,225.0,-10.5,-4.458598726114649,-4.458598726114649,USD
+Brooklyn,Prospect Heights,2025-11-01,5,215.0,,,,USD
+Brooklyn,Prospect-Lefferts Gardens,2025-11-01,5,155.0,,,,USD
+Brooklyn,Red Hook,2025-11-01,1,187.0,,,,USD
+Brooklyn,Sea Gate,2025-11-01,1,295.0,,,,USD
+Brooklyn,South Slope,2025-11-01,6,147.0,,,,USD
+Brooklyn,Sunset Park,2025-11-01,3,80.0,,,,USD
+Brooklyn,Vinegar Hill,2025-11-01,1,192.0,,,,USD
+Brooklyn,Williamsburg,2025-11-01,40,204.0,4.0,2.0000000000000018,2.0000000000000018,USD
+Brooklyn,Windsor Terrace,2025-11-01,7,150.0,,,,USD
+Manhattan,Battery Park City,2025-11-01,2,190.5,,,,USD
+Manhattan,Chelsea,2025-11-01,20,221.5,-12.5,-5.341880341880345,-5.341880341880345,USD
+Manhattan,Chinatown,2025-11-01,1,237.0,,,,USD
+Manhattan,East Harlem,2025-11-01,20,153.5,3.5,2.333333333333343,2.333333333333343,USD
+Manhattan,East Village,2025-11-01,27,174.0,15.0,9.433962264150942,9.433962264150942,USD
+Manhattan,Financial District,2025-11-01,17,302.0,57.0,23.26530612244897,23.26530612244897,USD
+Manhattan,Flatiron District,2025-11-01,2,205.0,,,,USD
+Manhattan,Gramercy,2025-11-01,11,202.0,35.0,20.958083832335326,20.958083832335326,USD
+Manhattan,Greenwich Village,2025-11-01,6,169.0,,,,USD
+Manhattan,Harlem,2025-11-01,39,160.0,10.5,7.0234113712374535,7.0234113712374535,USD
+Manhattan,Hell's Kitchen,2025-11-01,48,178.0,-11.5,-6.068601583113454,-6.068601583113454,USD
+Manhattan,Inwood,2025-11-01,3,109.0,,,,USD
+Manhattan,Kips Bay,2025-11-01,11,250.0,6.0,2.4590163934426146,2.4590163934426146,USD
+Manhattan,Little Italy,2025-11-01,7,165.0,,,,USD
+Manhattan,Lower East Side,2025-11-01,16,233.0,8.5,3.786191536748329,3.786191536748329,USD
+Manhattan,Marble Hill,2025-11-01,0,,,,,USD
+Manhattan,Midtown,2025-11-01,56,329.0,-29.5,-8.228730822873088,-8.228730822873088,USD
+Manhattan,Morningside Heights,2025-11-01,3,149.0,,,,USD
+Manhattan,Murray Hill,2025-11-01,17,161.0,1.0,0.6250000000000089,0.6250000000000089,USD
+Manhattan,NoHo,2025-11-01,1,823.0,,,,USD
+Manhattan,Nolita,2025-11-01,4,201.5,,,,USD
+Manhattan,SoHo,2025-11-01,2,191.0,,,,USD
+Manhattan,Theater District,2025-11-01,4,417.5,,,,USD
+Manhattan,Tribeca,2025-11-01,1,333.0,,,,USD
+Manhattan,Two Bridges,2025-11-01,1,270.0,,,,USD
+Manhattan,Upper East Side,2025-11-01,58,185.5,9.5,5.397727272727271,5.397727272727271,USD
+Manhattan,Upper West Side,2025-11-01,33,200.0,19.0,10.497237569060779,10.497237569060779,USD
+Manhattan,Washington Heights,2025-11-01,9,179.0,,,,USD
+Manhattan,West Village,2025-11-01,12,373.5,19.0,5.359661495063461,5.359661495063461,USD
+Queens,Arverne,2025-11-01,3,335.0,,,,USD
+Queens,Astoria,2025-11-01,11,160.0,,,,USD
+Queens,Bayside,2025-11-01,4,100.0,,,,USD
+Queens,Bayswater,2025-11-01,1,56.0,,,,USD
+Queens,Bellerose,2025-11-01,2,119.5,,,,USD
+Queens,Breezy Point,2025-11-01,1,135.0,,,,USD
+Queens,Briarwood,2025-11-01,2,170.0,,,,USD
+Queens,Cambria Heights,2025-11-01,4,85.0,,,,USD
+Queens,College Point,2025-11-01,1,129.0,,,,USD
+Queens,Corona,2025-11-01,2,104.5,,,,USD
+Queens,Ditmars Steinway,2025-11-01,4,117.5,,,,USD
+Queens,East Elmhurst,2025-11-01,6,149.5,,,,USD
+Queens,Edgemere,2025-11-01,2,107.5,,,,USD
+Queens,Elmhurst,2025-11-01,4,116.0,,,,USD
+Queens,Far Rockaway,2025-11-01,1,446.0,,,,USD
+Queens,Flushing,2025-11-01,6,98.0,,,,USD
+Queens,Forest Hills,2025-11-01,6,142.0,,,,USD
+Queens,Fresh Meadows,2025-11-01,2,80.0,,,,USD
+Queens,Glendale,2025-11-01,1,110.0,,,,USD
+Queens,Jackson Heights,2025-11-01,2,220.0,,,,USD
+Queens,Jamaica,2025-11-01,5,124.0,,,,USD
+Queens,Laurelton,2025-11-01,2,162.0,,,,USD
+Queens,Long Island City,2025-11-01,4,123.5,,,,USD
+Queens,Maspeth,2025-11-01,1,179.0,,,,USD
+Queens,Middle Village,2025-11-01,1,171.0,,,,USD
+Queens,Ozone Park,2025-11-01,2,175.5,,,,USD
+Queens,Queens Village,2025-11-01,5,204.0,,,,USD
+Queens,Rego Park,2025-11-01,3,128.0,,,,USD
+Queens,Richmond Hill,2025-11-01,6,248.5,,,,USD
+Queens,Ridgewood,2025-11-01,6,228.0,,,,USD
+Queens,Rockaway Beach,2025-11-01,1,73.0,,,,USD
+Queens,Rosedale,2025-11-01,3,140.0,,,,USD
+Queens,Springfield Gardens,2025-11-01,5,186.0,,,,USD
+Queens,St. Albans,2025-11-01,3,135.0,,,,USD
+Queens,Sunnyside,2025-11-01,3,105.0,,,,USD
+Queens,Whitestone,2025-11-01,1,150.0,,,,USD
+Queens,Woodhaven,2025-11-01,3,109.0,,,,USD
+Queens,Woodside,2025-11-01,3,95.0,,,,USD
+Staten Island,Arrochar,2025-11-01,1,90.0,,,,USD
+Staten Island,Graniteville,2025-11-01,1,121.0,,,,USD
+Staten Island,Mariners Harbor,2025-11-01,1,57.0,,,,USD
+Staten Island,Port Richmond,2025-11-01,1,65.0,,,,USD
+Staten Island,Shore Acres,2025-11-01,2,97.0,,,,USD
+Staten Island,Tompkinsville,2025-11-01,2,153.5,,,,USD
+Staten Island,Tottenville,2025-11-01,1,92.0,,,,USD
+Staten Island,West Brighton,2025-11-01,2,80.0,,,,USD
+Bronx,Baychester,2026-03-16,1,107.27,,,,USD
+Bronx,Bronxdale,2026-03-16,1,176.27,,,,USD
+Bronx,Castle Hill,2026-03-16,1,163.0,,,,USD
+Bronx,City Island,2026-03-16,1,105.16,,,,USD
+Bronx,Clason Point,2026-03-16,1,96.15,,,,USD
+Bronx,Co-op City,2026-03-16,1,98.1,,,,USD
+Bronx,Concourse,2026-03-16,3,151.41,,,,USD
+Bronx,Concourse Village,2026-03-16,2,171.235,,,,USD
+Bronx,Kingsbridge,2026-03-16,1,89.08,,,,USD
+Bronx,Melrose,2026-03-16,1,98.5,,,,USD
+Bronx,Morris Heights,2026-03-16,1,336.0,,,,USD
+Bronx,Morris Park,2026-03-16,1,125.93,,,,USD
+Bronx,Morrisania,2026-03-16,1,97.34,,,,USD
+Bronx,Mott Haven,2026-03-16,5,110.63,,,,USD
+Bronx,Norwood,2026-03-16,2,101.485,,,,USD
+Bronx,Olinville,2026-03-16,1,180.82,,,,USD
+Bronx,Port Morris,2026-03-16,1,168.5,,,,USD
+Bronx,Schuylerville,2026-03-16,1,282.08,,,,USD
+Bronx,Unionport,2026-03-16,1,95.13,,,,USD
+Bronx,Van Nest,2026-03-16,1,136.84,,,,USD
+Bronx,Wakefield,2026-03-16,2,319.45,,,,USD
+Bronx,Williamsbridge,2026-03-16,2,97.21000000000001,,,,USD
+Brooklyn,Bay Ridge,2026-03-16,3,56.73,,,,USD
+Brooklyn,Bedford-Stuyvesant,2026-03-16,54,170.625,5.625,3.409090909090917,9.025559105431302,USD
+Brooklyn,Bensonhurst,2026-03-16,3,205.92,,,,USD
+Brooklyn,Bergen Beach,2026-03-16,1,252.61,,,,USD
+Brooklyn,Boerum Hill,2026-03-16,6,213.76,,,,USD
+Brooklyn,Borough Park,2026-03-16,1,63.53,,,,USD
+Brooklyn,Brighton Beach,2026-03-16,1,91.0,,,,USD
+Brooklyn,Brooklyn Heights,2026-03-16,3,435.47,,,,USD
+Brooklyn,Brownsville,2026-03-16,5,150.58,,,,USD
+Brooklyn,Bushwick,2026-03-16,27,129.98,-32.02000000000001,-19.765432098765434,-4.426470588235299,USD
+Brooklyn,Canarsie,2026-03-16,11,150.16,3.6599999999999966,2.498293515358352,5.7464788732394245,USD
+Brooklyn,Carroll Gardens,2026-03-16,4,206.905,,,,USD
+Brooklyn,Clinton Hill,2026-03-16,7,226.4,,,,USD
+Brooklyn,Crown Heights,2026-03-16,34,181.175,17.17500000000001,10.472560975609756,10.472560975609756,USD
+Brooklyn,Cypress Hills,2026-03-16,5,118.73,,,,USD
+Brooklyn,Downtown Brooklyn,2026-03-16,1,287.33,,,,USD
+Brooklyn,East Flatbush,2026-03-16,20,124.905,-18.595,-12.958188153310102,-8.82846715328467,USD
+Brooklyn,East New York,2026-03-16,12,119.58500000000001,-3.414999999999992,-2.7764227642276373,4.899122807017542,USD
+Brooklyn,Flatbush,2026-03-16,13,138.73,13.72999999999999,10.983999999999995,6.306513409961667,USD
+Brooklyn,Flatlands,2026-03-16,4,181.225,,,,USD
+Brooklyn,Fort Greene,2026-03-16,6,198.83499999999998,,,,USD
+Brooklyn,Fort Hamilton,2026-03-16,8,115.5,,,,USD
+Brooklyn,Gowanus,2026-03-16,2,352.78499999999997,,,,USD
+Brooklyn,Gravesend,2026-03-16,2,149.97500000000002,,,,USD
+Brooklyn,Greenpoint,2026-03-16,7,269.0,,,,USD
+Brooklyn,Manhattan Beach,2026-03-16,1,124.8,,,,USD
+Brooklyn,Midwood,2026-03-16,2,84.66,,,,USD
+Brooklyn,Park Slope,2026-03-16,12,264.865,39.86500000000001,17.717777777777787,12.469214437367304,USD
+Brooklyn,Prospect Heights,2026-03-16,5,390.87,,,,USD
+Brooklyn,Prospect-Lefferts Gardens,2026-03-16,5,130.0,,,,USD
+Brooklyn,Red Hook,2026-03-16,1,207.68,,,,USD
+Brooklyn,Sea Gate,2026-03-16,1,181.03,,,,USD
+Brooklyn,South Slope,2026-03-16,6,172.53,,,,USD
+Brooklyn,Sunset Park,2026-03-16,3,88.5,,,,USD
+Brooklyn,Vinegar Hill,2026-03-16,1,206.73,,,,USD
+Brooklyn,Williamsburg,2026-03-16,40,212.495,8.495000000000005,4.164215686274519,6.247500000000006,USD
+Brooklyn,Windsor Terrace,2026-03-16,6,198.715,,,,USD
+Manhattan,Battery Park City,2026-03-16,2,179.95,,,,USD
+Manhattan,Chelsea,2026-03-16,21,206.5,-15.0,-6.772009029345371,-11.752136752136755,USD
+Manhattan,Chinatown,2026-03-16,1,350.0,,,,USD
+Manhattan,East Harlem,2026-03-16,22,156.065,2.5649999999999977,1.6710097719869754,4.043333333333332,USD
+Manhattan,East Village,2026-03-16,22,167.51999999999998,-6.480000000000018,-3.724137931034488,5.358490566037721,USD
+Manhattan,Financial District,2026-03-16,17,297.93,-4.069999999999993,-1.3476821192052957,21.60408163265306,USD
+Manhattan,Flatiron District,2026-03-16,2,187.55,,,,USD
+Manhattan,Gramercy,2026-03-16,13,174.43,-27.569999999999993,-13.64851485148515,4.449101796407184,USD
+Manhattan,Greenwich Village,2026-03-16,6,284.4,,,,USD
+Manhattan,Harlem,2026-03-16,42,152.53,-7.469999999999999,-4.668749999999999,2.026755852842821,USD
+Manhattan,Hell's Kitchen,2026-03-16,48,181.42000000000002,3.420000000000016,1.9213483146067523,-4.2638522427440595,USD
+Manhattan,Inwood,2026-03-16,3,108.8,,,,USD
+Manhattan,Kips Bay,2026-03-16,12,240.51999999999998,-9.480000000000018,-3.7920000000000065,-1.4262295081967302,USD
+Manhattan,Little Italy,2026-03-16,7,169.63,,,,USD
+Manhattan,Lower East Side,2026-03-16,16,234.46499999999997,1.464999999999975,0.6287553648068656,4.43875278396435,USD
+Manhattan,Marble Hill,2026-03-16,0,,,,,USD
+Manhattan,Midtown,2026-03-16,58,329.0,0.0,0.0,-8.228730822873088,USD
+Manhattan,Morningside Heights,2026-03-16,3,129.43,,,,USD
+Manhattan,Murray Hill,2026-03-16,17,160.4,-0.5999999999999943,-0.3726708074534124,0.24999999999999467,USD
+Manhattan,NoHo,2026-03-16,1,696.25,,,,USD
+Manhattan,Nolita,2026-03-16,4,247.62,,,,USD
+Manhattan,SoHo,2026-03-16,3,162.59,,,,USD
+Manhattan,Theater District,2026-03-16,5,376.33,,,,USD
+Manhattan,Tribeca,2026-03-16,1,354.1,,,,USD
+Manhattan,Two Bridges,2026-03-16,1,277.82,,,,USD
+Manhattan,Upper East Side,2026-03-16,65,191.37,5.8700000000000045,3.164420485175201,8.732954545454552,USD
+Manhattan,Upper West Side,2026-03-16,32,201.275,1.2750000000000057,0.637500000000002,11.201657458563542,USD
+Manhattan,Washington Heights,2026-03-16,10,112.58,,,12.579999999999991,USD
+Manhattan,West Village,2026-03-16,14,366.315,-7.185000000000002,-1.9236947791164694,3.332863187588142,USD
+Queens,Arverne,2026-03-16,4,254.26500000000001,,,,USD
+Queens,Astoria,2026-03-16,11,151.33,-8.669999999999987,-5.418749999999994,,USD
+Queens,Bayside,2026-03-16,4,106.75999999999999,,,,USD
+Queens,Bayswater,2026-03-16,1,68.87,,,,USD
+Queens,Bellerose,2026-03-16,2,133.05,,,,USD
+Queens,Breezy Point,2026-03-16,1,151.18,,,,USD
+Queens,Briarwood,2026-03-16,2,122.74000000000001,,,,USD
+Queens,Cambria Heights,2026-03-16,5,92.07,,,,USD
+Queens,College Point,2026-03-16,1,196.16,,,,USD
+Queens,Corona,2026-03-16,2,106.535,,,,USD
+Queens,Ditmars Steinway,2026-03-16,4,122.89,,,,USD
+Queens,East Elmhurst,2026-03-16,5,110.25,,,,USD
+Queens,Edgemere,2026-03-16,2,116.66499999999999,,,,USD
+Queens,Elmhurst,2026-03-16,4,123.47,,,,USD
+Queens,Far Rockaway,2026-03-16,1,498.66,,,,USD
+Queens,Flushing,2026-03-16,7,112.43,,,,USD
+Queens,Forest Hills,2026-03-16,6,138.58499999999998,,,,USD
+Queens,Fresh Meadows,2026-03-16,1,61.78,,,,USD
+Queens,Glendale,2026-03-16,1,111.19,,,,USD
+Queens,Jackson Heights,2026-03-16,2,231.335,,,,USD
+Queens,Jamaica,2026-03-16,6,200.76999999999998,,,,USD
+Queens,Laurelton,2026-03-16,2,217.12,,,,USD
+Queens,Long Island City,2026-03-16,4,105.95500000000001,,,,USD
+Queens,Maspeth,2026-03-16,1,200.57,,,,USD
+Queens,Middle Village,2026-03-16,1,248.5,,,,USD
+Queens,Ozone Park,2026-03-16,2,249.575,,,,USD
+Queens,Queens Village,2026-03-16,5,148.41,,,,USD
+Queens,Rego Park,2026-03-16,2,285.03999999999996,,,,USD
+Queens,Richmond Hill,2026-03-16,6,264.96500000000003,,,,USD
+Queens,Ridgewood,2026-03-16,6,167.755,,,,USD
+Queens,Rockaway Beach,2026-03-16,1,82.23,,,,USD
+Queens,Rosedale,2026-03-16,5,200.93,,,,USD
+Queens,Springfield Gardens,2026-03-16,5,212.02,,,,USD
+Queens,St. Albans,2026-03-16,3,152.2,,,,USD
+Queens,Sunnyside,2026-03-16,4,107.85,,,,USD
+Queens,Whitestone,2026-03-16,1,171.47,,,,USD
+Queens,Woodhaven,2026-03-16,3,171.44,,,,USD
+Queens,Woodside,2026-03-16,3,103.23,,,,USD
+Staten Island,Arrochar,2026-03-16,1,105.19,,,,USD
+Staten Island,Graniteville,2026-03-16,1,128.0,,,,USD
+Staten Island,Mariners Harbor,2026-03-16,1,75.52,,,,USD
+Staten Island,Port Richmond,2026-03-16,1,80.4,,,,USD
+Staten Island,Shore Acres,2026-03-16,2,93.745,,,,USD
+Staten Island,Tompkinsville,2026-03-16,2,182.82,,,,USD
+Staten Island,Tottenville,2026-03-16,1,104.93,,,,USD
+Staten Island,West Brighton,2026-03-16,1,61.82,,,,USD
+Bronx,Baychester,2026-06-14,1,107.27,,,,USD
+Bronx,Bronxdale,2026-06-14,1,176.27,,,,USD
+Bronx,Castle Hill,2026-06-14,1,171.18,,,,USD
+Bronx,City Island,2026-06-14,1,128.83,,,,USD
+Bronx,Clason Point,2026-06-14,1,95.83,,,,USD
+Bronx,Co-op City,2026-06-14,1,98.1,,,,USD
+Bronx,Concourse,2026-06-14,3,132.26,,,,USD
+Bronx,Concourse Village,2026-06-14,2,178.9,,,,USD
+Bronx,Kingsbridge,2026-06-14,1,89.5,,,,USD
+Bronx,Melrose,2026-06-14,1,104.23,,,,USD
+Bronx,Morris Heights,2026-06-14,1,536.0,,,,USD
+Bronx,Morris Park,2026-06-14,2,124.87,,,,USD
+Bronx,Morrisania,2026-06-14,1,97.34,,,,USD
+Bronx,Mott Haven,2026-06-14,5,107.9,,,,USD
+Bronx,Norwood,2026-06-14,2,106.85,,,,USD
+Bronx,Olinville,2026-06-14,1,180.82,,,,USD
+Bronx,Port Morris,2026-06-14,1,168.0,,,,USD
+Bronx,Schuylerville,2026-06-14,1,282.08,,,,USD
+Bronx,Unionport,2026-06-14,1,163.73,,,,USD
+Bronx,Van Nest,2026-06-14,1,172.33,,,,USD
+Bronx,Wakefield,2026-06-14,3,130.9,,,,USD
+Bronx,Williamsbridge,2026-06-14,2,92.565,,,,USD
+Brooklyn,Bay Ridge,2026-06-14,3,58.77,,,,USD
+Brooklyn,Bedford-Stuyvesant,2026-06-14,60,171.745,1.1200000000000045,0.6564102564102559,9.741214057507985,USD
+Brooklyn,Bensonhurst,2026-06-14,3,205.92,,,,USD
+Brooklyn,Bergen Beach,2026-06-14,1,252.71,,,,USD
+Brooklyn,Boerum Hill,2026-06-14,6,202.65,,,,USD
+Brooklyn,Borough Park,2026-06-14,1,63.53,,,,USD
+Brooklyn,Brighton Beach,2026-06-14,1,113.0,,,,USD
+Brooklyn,Brooklyn Heights,2026-06-14,3,435.47,,,,USD
+Brooklyn,Brownsville,2026-06-14,5,173.34,,,,USD
+Brooklyn,Bushwick,2026-06-14,28,153.735,23.755000000000024,18.275888598245892,13.040441176470608,USD
+Brooklyn,Canarsie,2026-06-14,11,150.16,0.0,0.0,5.7464788732394245,USD
+Brooklyn,Carroll Gardens,2026-06-14,4,210.905,,,,USD
+Brooklyn,Clinton Hill,2026-06-14,7,226.4,,,,USD
+Brooklyn,Crown Heights,2026-06-14,35,174.78,-6.39500000000001,-3.5297364426659317,6.573170731707312,USD
+Brooklyn,Cypress Hills,2026-06-14,5,180.23,,,,USD
+Brooklyn,Downtown Brooklyn,2026-06-14,1,319.91,,,,USD
+Brooklyn,East Flatbush,2026-06-14,21,130.71,5.805000000000007,4.647532124414555,-4.591240875912406,USD
+Brooklyn,East New York,2026-06-14,12,129.175,9.590000000000003,8.019400426474888,13.311403508771935,USD
+Brooklyn,Flatbush,2026-06-14,13,154.86,16.130000000000024,11.626901174944159,18.666666666666675,USD
+Brooklyn,Flatlands,2026-06-14,4,212.89499999999998,,,,USD
+Brooklyn,Fort Greene,2026-06-14,6,195.805,,,,USD
+Brooklyn,Fort Hamilton,2026-06-14,8,185.0,,,,USD
+Brooklyn,Gowanus,2026-06-14,2,664.93,,,,USD
+Brooklyn,Gravesend,2026-06-14,2,150.025,,,,USD
+Brooklyn,Greenpoint,2026-06-14,7,276.67,,,,USD
+Brooklyn,Manhattan Beach,2026-06-14,1,134.23,,,,USD
+Brooklyn,Midwood,2026-06-14,2,66.205,,,,USD
+Brooklyn,Park Slope,2026-06-14,13,288.7,23.83499999999998,8.998923980140816,22.590233545647553,USD
+Brooklyn,Prospect Heights,2026-06-14,5,390.87,,,,USD
+Brooklyn,Prospect-Lefferts Gardens,2026-06-14,5,156.37,,,,USD
+Brooklyn,Red Hook,2026-06-14,2,208.775,,,,USD
+Brooklyn,Sea Gate,2026-06-14,1,290.73,,,,USD
+Brooklyn,South Slope,2026-06-14,6,165.745,,,,USD
+Brooklyn,Sunset Park,2026-06-14,3,88.5,,,,USD
+Brooklyn,Vinegar Hill,2026-06-14,1,219.1,,,,USD
+Brooklyn,Williamsburg,2026-06-14,44,221.27,8.775000000000006,4.129508929621872,10.634999999999994,USD
+Brooklyn,Windsor Terrace,2026-06-14,7,174.85,,,,USD
+Manhattan,Battery Park City,2026-06-14,2,232.95,,,,USD
+Manhattan,Chelsea,2026-06-14,21,232.3,25.80000000000001,12.493946731234873,-0.7264957264957239,USD
+Manhattan,Chinatown,2026-06-14,1,344.0,,,,USD
+Manhattan,East Harlem,2026-06-14,23,165.93,9.865000000000009,6.3210841636497594,10.620000000000008,USD
+Manhattan,East Village,2026-06-14,27,204.93,37.410000000000025,22.331661891117506,28.88679245283019,USD
+Manhattan,Financial District,2026-06-14,16,333.16999999999996,35.23999999999995,11.828281811163688,35.98775510204079,USD
+Manhattan,Flatiron District,2026-06-14,2,205.69,,,,USD
+Manhattan,Gramercy,2026-06-14,13,231.24,56.81,32.56893882932981,38.467065868263475,USD
+Manhattan,Greenwich Village,2026-06-14,7,192.83,,,,USD
+Manhattan,Harlem,2026-06-14,43,155.22,2.6899999999999977,1.7635874909853744,3.826086956521735,USD
+Manhattan,Hell's Kitchen,2026-06-14,47,217.0,35.579999999999984,19.611950170874202,14.511873350923477,USD
+Manhattan,Inwood,2026-06-14,3,132.77,,,,USD
+Manhattan,Kips Bay,2026-06-14,13,214.05,-26.46999999999997,-11.00532180276067,-12.274590163934418,USD
+Manhattan,Little Italy,2026-06-14,7,182.53,,,,USD
+Manhattan,Lower East Side,2026-06-14,16,233.935,-0.5299999999999727,-0.22604653146524045,4.202672605790636,USD
+Manhattan,Marble Hill,2026-06-14,0,,,,,USD
+Manhattan,Midtown,2026-06-14,60,401.0,72.0,21.884498480243163,11.85495118549511,USD
+Manhattan,Morningside Heights,2026-06-14,3,129.43,,,,USD
+Manhattan,Murray Hill,2026-06-14,18,170.845,10.444999999999993,6.511845386533666,6.77812499999999,USD
+Manhattan,NoHo,2026-06-14,1,843.04,,,,USD
+Manhattan,Nolita,2026-06-14,4,371.485,,,,USD
+Manhattan,SoHo,2026-06-14,3,155.85,,,,USD
+Manhattan,Theater District,2026-06-14,5,376.13,,,,USD
+Manhattan,Tribeca,2026-06-14,1,355.83,,,,USD
+Manhattan,Two Bridges,2026-06-14,1,291.18,,,,USD
+Manhattan,Upper East Side,2026-06-14,68,250.625,59.254999999999995,30.96357840831896,42.40056818181819,USD
+Manhattan,Upper West Side,2026-06-14,34,206.55,5.275000000000006,2.6207924481430833,14.116022099447513,USD
+Manhattan,Washington Heights,2026-06-14,11,119.5,6.920000000000002,6.146740095931791,19.500000000000007,USD
+Manhattan,West Village,2026-06-14,14,384.94,18.625,5.08442187734599,8.586741889985895,USD
+Queens,Arverne,2026-06-14,4,305.345,,,,USD
+Queens,Astoria,2026-06-14,11,157.81,6.47999999999999,4.282032643890821,,USD
+Queens,Bayside,2026-06-14,4,106.75999999999999,,,,USD
+Queens,Bayswater,2026-06-14,1,512.96,,,,USD
+Queens,Bellerose,2026-06-14,2,127.00999999999999,,,,USD
+Queens,Breezy Point,2026-06-14,1,151.18,,,,USD
+Queens,Briarwood,2026-06-14,2,122.925,,,,USD
+Queens,Cambria Heights,2026-06-14,5,93.17,,,,USD
+Queens,College Point,2026-06-14,1,129.05,,,,USD
+Queens,Corona,2026-06-14,2,103.615,,,,USD
+Queens,Ditmars Steinway,2026-06-14,4,120.665,,,,USD
+Queens,East Elmhurst,2026-06-14,6,110.95,,,,USD
+Queens,Edgemere,2026-06-14,2,118.655,,,,USD
+Queens,Elmhurst,2026-06-14,5,133.41,,,,USD
+Queens,Far Rockaway,2026-06-14,1,499.73,,,,USD
+Queens,Flushing,2026-06-14,8,120.08,,,,USD
+Queens,Forest Hills,2026-06-14,6,177.47,,,,USD
+Queens,Fresh Meadows,2026-06-14,2,73.445,,,,USD
+Queens,Glendale,2026-06-14,1,111.22,,,,USD
+Queens,Jackson Heights,2026-06-14,2,236.505,,,,USD
+Queens,Jamaica,2026-06-14,6,203.95499999999998,,,,USD
+Queens,Laurelton,2026-06-14,2,265.25,,,,USD
+Queens,Long Island City,2026-06-14,5,125.13,,,,USD
+Queens,Maspeth,2026-06-14,1,200.57,,,,USD
+Queens,Middle Village,2026-06-14,1,311.0,,,,USD
+Queens,Ozone Park,2026-06-14,2,217.11,,,,USD
+Queens,Queens Village,2026-06-14,5,148.41,,,,USD
+Queens,Rego Park,2026-06-14,3,149.43,,,,USD
+Queens,Richmond Hill,2026-06-14,6,309.46500000000003,,,,USD
+Queens,Ridgewood,2026-06-14,6,170.37,,,,USD
+Queens,Rockaway Beach,2026-06-14,1,82.23,,,,USD
+Queens,Rosedale,2026-06-14,5,200.22,,,,USD
+Queens,Springfield Gardens,2026-06-14,5,245.2,,,,USD
+Queens,St. Albans,2026-06-14,3,207.5,,,,USD
+Queens,Sunnyside,2026-06-14,4,124.48,,,,USD
+Queens,Whitestone,2026-06-14,1,171.47,,,,USD
+Queens,Woodhaven,2026-06-14,3,139.63,,,,USD
+Queens,Woodside,2026-06-14,3,103.23,,,,USD
+Staten Island,Arrochar,2026-06-14,1,106.45,,,,USD
+Staten Island,Graniteville,2026-06-14,1,128.07,,,,USD
+Staten Island,Mariners Harbor,2026-06-14,1,85.96,,,,USD
+Staten Island,Port Richmond,2026-06-14,1,85.93,,,,USD
+Staten Island,Shore Acres,2026-06-14,2,93.745,,,,USD
+Staten Island,Tompkinsville,2026-06-14,2,183.3,,,,USD
+Staten Island,Tottenville,2026-06-14,1,105.3,,,,USD
+Staten Island,West Brighton,2026-06-14,2,79.37,,,,USD

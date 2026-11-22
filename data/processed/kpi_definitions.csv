@@ -1,0 +1,8 @@
+kpi_id,ten,muc_tieu,cong_thuc,don_vi,mốc,ben_lien_quan
+1,Giá trung vị niêm yết,"Mức giá điển hình theo quận x loại phòng, tư vấn ngân sách",Median(giá hợp lệ > 0); coverage = n_valid/n_total,USD/đêm,2025-09-01,Công ty du lịch (lữ hành) tư vấn lưu trú ngắn hạn tại New York City
+2,Tỷ lệ listing khai báo đủ Wi-Fi + Kitchen,Sàng lọc chỗ ở có đủ Wi-Fi + Kitchen,B/D x 100 (D: amenities hợp lệ; B: có đủ Wi-Fi + Kitchen),%,cả 4 mốc,Công ty du lịch (lữ hành) tư vấn lưu trú ngắn hạn tại New York City
+3,Tỷ lệ listing đáp ứng 3 đêm liên tiếp,Khả năng cung cấp gói 3 đêm trong 90 đêm,"T/(T+F) x 100; U không vào mẫu số; kèm coverage, lower, upper",%,2026-03-16,Công ty du lịch (lữ hành) tư vấn lưu trú ngắn hạn tại New York City
+4,Biến động giá trung vị theo khu phố,Theo dõi thay đổi ngân sách theo khu phố,delta = M_t - M_(t-1); change = (M_t/M_(t-1) - 1) x 100; chỉ so khi cả hai mốc có >= 10 giá,USD/đêm và %,cả 4 mốc,Công ty du lịch (lữ hành) tư vấn lưu trú ngắn hạn tại New York City
+5,Biến động tỷ lệ listing thuộc Superhost,Tìm tín hiệu uy tín của chủ nhà,T/(T+F) x 100; chênh lệch tính bằng điểm phần trăm,% và pp,cả 4 mốc,Công ty du lịch (lữ hành) tư vấn lưu trú ngắn hạn tại New York City
+6,Tỷ lệ review tiêu cực theo loại phòng (LLM),Nhận diện phân khúc cần kiểm tra kỹ,negative / (positive+mixed+negative) x 100,%,2026-06-14,Công ty du lịch (lữ hành) tư vấn lưu trú ngắn hạn tại New York City
+7,Tỷ lệ phàn nàn theo 5 yếu tố (LLM),Yếu tố nào bị chê nhiều nhất trong review có đánh giá yếu tố đó,|N| / |P ∪ N| x 100,%,2026-06-14,Công ty du lịch (lữ hành) tư vấn lưu trú ngắn hạn tại New York City
