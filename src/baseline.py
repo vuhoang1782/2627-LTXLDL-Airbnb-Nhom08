@@ -27,7 +27,7 @@ STOPWORDS = {
     "it": set("il lo la gli le e era molto con per un una che noi appartamento soggiorno non".split()),
 }
 
-
+#cuong
 def score(s):
     return VADER.polarity_scores(s)["compound"]        # [-1, 1]; VADER tự xử lý phủ định, từ nhấn mạnh, dấu chấm than
 
